@@ -1828,7 +1828,11 @@ jQuery(document).ready(function ($) {
 
 	const newPage = document.querySelector('.new-page');
 
+	
 	if (newPage) {
+		const domain = location.hostname;
+		console.log(domain)
+
 		params = JSON.parse(localStorage.getItem('params'));
 		calculateESG();
 		alert('Сейчас начнется скачивание файла PDF. В следующем окне нажмите галочку "Фон", в разделе "Дополнительные настройки"');
@@ -1836,14 +1840,15 @@ jQuery(document).ready(function ($) {
 			printJS({
 				printable: 'calcs',
 				type: 'html',
-				css: 'http://geo-calc.ru/wp-content/themes/main/css/main.css'
+				css: `http://${domain}/wp-content/themes/main/css/main.css`
 			});
 		}, 2000); 
+
 		$('.last-btn').on('click', function() {
 			printJS({
 				printable: 'calcs',
 				type: 'html',
-				css: 'http://geo-calc.ru/wp-content/themes/main/css/main.css'
+				css: `http://${domain}/wp-content/themes/main/css/main.css`
 			});
 		});
 	} 
