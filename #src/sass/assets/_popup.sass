@@ -1,0 +1,205 @@
+#thx
+  display: none
+  z-index: 5000
+  background-color: #fff
+  border-radius: 25px
+  padding: 30px
+  flex-direction: column
+  align-items: center
+  box-shadow: 0px 4px 45px rgba(0, 0, 0, 0.1)
+  img
+    margin: auto
+    margin-bottom: 20px
+    display: block 
+  b
+    display: block
+    font-size: 28px
+    margin-bottom: 10px
+    text-align: center
+  p
+    color: $text
+    display: block
+    margin-bottom: 20px
+    text-align: center
+  .button
+    width: 100%
+    max-width: 100%
+    box-shadow: none
+
+.wpcf7-response-output
+  display: none!important
+
+.overlay
+  position: fixed
+  z-index: 100
+  top: 0
+  width: 100%
+  left: 0
+  right: 0
+  bottom: 0
+  height: 100%
+  background-color: rgba(#000, .7)
+  display: none
+
+.popup
+  width: 970px
+  max-width: 95vw
+  max-height: 90vh
+  background-color: #fff
+  padding: 30px
+  border-radius: 10px
+  z-index: 150
+  display: none
+  position: fixed
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  color: $dark
+  &-thx
+    opacity: .3
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"]
+    appearance: none
+    border-radius: 15px
+    background-color: #fff
+    border: 1px solid #E7E7E7
+    height: 60px
+    width: 100%
+    max-width: 100%
+    display: block
+    font-size: 18px
+    padding-left: 20px
+  textarea
+    resize: none
+    appearance: none
+    border-radius: 15px
+    background-color: #fff
+    border: 1px solid #E7E7E7
+    height: 210px
+    width: 100%
+    max-width: 100%
+    display: block
+    font-size: 18px
+    padding-left: 20px
+    padding-top: 25px
+  input.button
+    box-shadow: none
+    width: 100%
+    max-width: 100%
+    display: block
+    margin-bottom: 20px
+    margin-top: 20px
+  small
+    color: #9A9A9A
+    font-size: 14px
+    max-width: 240px
+    display: block
+    line-height: 17px
+    a
+      color: #9A9A9A
+      font-size: 14px
+      line-height: 17px
+      text-decoration: underline
+      &:hover
+        color: $accent
+  .close
+    position: absolute
+    cursor: pointer
+    transition: .2s
+    top: 10px
+    right: 0px
+    height: 32px
+    z-index: 10
+    width: 32px
+    background-repeat: no-repeat
+    background-size: contain
+    &:hover
+      transition: .2s
+  .form-radio .wpcf7-form-control
+    background-color: #F9F9FA
+    border-radius: 15px
+    width: max-content
+    padding: 5px
+    display: block
+    margin-bottom: 20px
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    .wpcf7-list-item
+      margin: 0
+      &:first-child
+        margin-right: 5px
+      span
+        font-size: 18px
+        line-height: 22px
+        color: #9A9A9A
+        display: block
+        padding: 10px 30px
+        border-radius: 10px
+        cursor: pointer
+        transition: .2s
+        &:hover
+          background-color: #fff
+          color: $dark
+          transition: .2s
+          box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05)
+      input
+        display: none
+        &:checked + span
+          background-color: #fff
+          color: $dark
+          box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05)
+  &.popup-video
+    width: 920px
+    max-width: 95vw
+    .close
+      top: 5px
+      right: 5px
+    iframe
+      border-radius: 20px
+      max-width: 100%
+ 
+
+.popup
+  overflow-y: auto
+  .close
+    right: 10px
+    svg
+      height: 30px
+      width: 30px
+  .wrap
+    padding-bottom: 30px
+    overflow-y: auto
+    display: block
+    height: auto
+    max-height: 100%
+    margin-right: 10px
+    .title
+      font-weight: 600
+      font-size: 18px
+      display: block
+      text-transform: uppercase
+      margin-bottom: 30px
+      line-height: 1.5
+    .content
+      ul
+        li
+          position: relative
+          padding-left: 15px
+          &::after
+            position: absolute
+            content: ''
+            height: 5px
+            width: 5px
+            border-radius: 100%
+            left: 0
+            background-color: #000
+            transform: translateY(-50%)
+            top: 50%
+      p,li
+        line-height: 1.5
+        font-size: 16px
+        margin-bottom: 15px
+      
+
