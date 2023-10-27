@@ -343,7 +343,6 @@ section {
   border: none;
   -webkit-box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.09);
           box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.09);
-  margin-top: 30px;
 }
 
 .select2-container .select2-dropdown .select2-search {
@@ -1473,6 +1472,12 @@ h1 {
 
 .mini-bar {
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: #D9D9D9;
+}
+
+.mini-bar .left .bar {
+  border-left-color: #D9D9D9;
+  border-right-color: #D9D9D9;
 }
 
 .mini-bar:last-child {
