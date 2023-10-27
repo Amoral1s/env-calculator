@@ -1,11 +1,11 @@
 <?php get_header(); ?>
 
-<section class="calc container ">
+<section class="calc container">
   <h1 class="title">
     РАСЧЕТ РЕЙТИНГА ESG
   </h1>
   <div class="calc-wrapper">
-    <div class="step registation" style="display: block">
+    <div class="step registation">
       <div class="calc-wrapper-item" >
         <b class="title">Регистрация</b>
         <div class="label">Данные компании</div>
@@ -16,70 +16,14 @@
             <option value="not_fin">Нефинансовые компании</option>
             <option value="fin">Финансовые компании</option>
           </select>
-          
         </div>
-        <div class="select hidden info-select">
+        <div class="select hidden">
           <select name="company_cat_ne_fin" id="company_cat_ne_fin">
             <option></option>
             <?php if(have_rows('fin', 'options')) : while(have_rows('fin', 'options')) : the_row(); ?>
             <option value="<?php the_sub_field('company'); ?>"><?php the_sub_field('company'); ?></option>
             <?php endwhile; endif; ?>
           </select>
-          <div class="quote-toggle">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M9.99996 18.3334C14.5833 18.3334 18.3333 14.5834 18.3333 10.0001C18.3333 5.41675 14.5833 1.66675 9.99996 1.66675C5.41663 1.66675 1.66663 5.41675 1.66663 10.0001C1.66663 14.5834 5.41663 18.3334 9.99996 18.3334Z" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10 6.66675V10.8334" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M9.99512 13.3333H10.0026" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div class="quote" style="display: none">
-              <b style="margin-bottom: 20px; display: block;">Нефинансовые услуги – сфера услуг (кроме финансовых). Включает в себя следующие виды услуг: </b>
-              <ul>
-                <li>
-                  Обеспечение электрической энергией, газом и паром; кондиционирование воздуха (Раздел D, согласно ОК 029-2014 (КДЕС Ред. 2). «Общероссийский классификатор видов экономической деятельности" (далее ОКВЭД)
-                </li>
-                <li>
-                  Водоснабжение, водоотведение, организация сбора и утилизации отходов (Раздел Е, согласно ОКВЭД)
-                </li>
-                <li>
-                  Транспортирование и хранение (Раздел Н, согласно ОКВЭД)
-                </li>
-                <li>
-                  Деятельность гостиниц и предприятий общественного питания (Раздел I, согласно ОКВЭД)
-                </li>
-                <li>
-                  Деятельность по операциям с недвижимым имуществом (Раздел L, согласно ОКВЭД)
-                </li>
-                <li>
-                  Деятельность профессиональная, научная и техническая (Раздел M, согласно ОКВЭД)
-                </li>
-                <li>
-                  Образование (Раздел P, согласно ОКВЭД)
-                </li>
-                <li>
-                  Деятельность в области здравоохранения и социальных услуг (Раздел Q, согласно ОКВЭД)
-                </li>
-                <li>
-                  Деятельность в области культуры, спорта, организации досуга и развлечений (Раздел R, согласно ОКВЭД)
-                </li>
-                <li>
-                  Предоставление прочих видов услуг (Раздел S, согласно ОКВЭД)
-                </li>
-                <li>
-                  Деятельность издательская (Раздел J.  Подраздел 58, согласно ОКВЭД)
-                </li>
-                <li>
-                  Производство кинофильмов, видеофильмов и телевизионных программ, издание звукозаписей и нот (Раздел J.  Подраздел 59, согласно ОКВЭД)
-                </li>
-                <li>
-                  Деятельность в области телевизионного и радиовещания (Раздел J.  Подраздел 60, согласно ОКВЭД)
-                </li>
-                <li>
-                  Деятельность в сфере телекоммуникаций (Раздел J.  Подраздел 61, согласно ОКВЭД)
-                </li>
-              </ul>
-
-            </div>
-          </div>
         </div>
         <div class="select hidden">
           <select name="company_cat_fin" id="company_cat_fin">
@@ -121,7 +65,7 @@
         </div>
       </div>
       <?php if(have_rows('block_E', 'options')) : while(have_rows('block_E', 'options')) : the_row(); ?>
-      <div class="calc-wrapper-item wrap-nav" style="display: none" data-id="<?php the_sub_field('value'); ?>">
+      <div class="calc-wrapper-item" data-id="<?php the_sub_field('value'); ?>">
         <b class="title">
           <?php the_sub_field('title'); ?>
         </b>
@@ -159,9 +103,6 @@
           </div>
           <?php endwhile; endif; ?>
         </div>
-        <div class="button mini-next disabled">
-          Далее
-        </div>
       </div>
       <?php endwhile; endif; ?>
       <div class="button next">
@@ -195,7 +136,7 @@
         </div>
       </div>
       <?php if(have_rows('block_E_fin', 'options')) : while(have_rows('block_E_fin', 'options')) : the_row(); ?>
-      <div class="calc-wrapper-item wrap-nav"  style="display: none" data-id="<?php the_sub_field('value'); ?>">
+      <div class="calc-wrapper-item" data-id="<?php the_sub_field('value'); ?>">
         <b class="title">
           <?php the_sub_field('title'); ?>
         </b>
@@ -233,9 +174,6 @@
           </div>
           <?php endwhile; endif; ?>
         </div>
-        <div class="button mini-next disabled">
-          Далее
-        </div>
       </div>
       <?php endwhile; endif; ?>
       <div class="button next">
@@ -268,86 +206,8 @@
           <div class="text">Блок G</div>
         </div>
       </div>
-      <?php $si = 1;  if(have_rows('block_S', 'options')) : while(have_rows('block_S', 'options')) : the_row(); ?>
-      <div class="calc-wrapper-item wrap-nav "  <?php if ($si == 1) { echo 'style="display: block"'; } else {
-        echo 'style="display: none"'; 
-      } $si++; ?> data-id="<?php the_sub_field('value'); ?>">
-        <b class="title">
-          <?php the_sub_field('title'); ?>
-        </b>
-        <div class="questions">
-          <?php if(have_rows('question')) : while(have_rows('question')) : the_row(); ?>
-          <div class="questions-item " data-id="<?php the_sub_field('id'); ?>" data-text="<?php the_sub_field('title'); ?>">
-            <div class="questions-item-title">
-              <?php if (get_sub_field('quote')) { ?> 
-              <div class="quote-toggle">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M9.99996 18.3334C14.5833 18.3334 18.3333 14.5834 18.3333 10.0001C18.3333 5.41675 14.5833 1.66675 9.99996 1.66675C5.41663 1.66675 1.66663 5.41675 1.66663 10.0001C1.66663 14.5834 5.41663 18.3334 9.99996 18.3334Z" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M10 6.66675V10.8334" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M9.99512 13.3333H10.0026" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <div class="quote">
-                  <?php the_sub_field('quote'); ?>
-                </div>
-              </div>
-              <?php } ?>
-              <b><?php the_sub_field('title'); ?></b>
-            </div>
-            <div class="questions-item-content">
-              <?php 
-              $index = 1;
-              $question_id = get_sub_field('id');
-              if(have_rows('answers')) : while(have_rows('answers')) : the_row(); ?>
-              <div class="item">
-                <input type="radio" id="<?php echo $question_id . '-' . $index;  ?>" name="<?php echo $question_id;  ?>" value="<?php the_sub_field('ball'); ?>">
-                <label for="<?php echo $question_id . '-' . $index; $index++;  ?>">
-                  <?php the_sub_field('answer'); ?>
-                </label>
-              </div>
-              <?php endwhile; endif; ?>
-            </div>
-          </div>
-          <?php endwhile; endif; ?>
-        </div>
-        <div class="button mini-next disabled">
-          Далее
-        </div>
-      </div>
-      <?php endwhile; endif; ?>
-      <div class="button next">
-          Далее
-      </div>
-    </div>
-    <!-- /.block_S -->
-    <div class="step block_G" id="block_G"style="display: none" >
-      <div class="bread">
-        <div class="item ">
-          <div class="num">1</div>
-          <div class="text ">Блок Е</div>
-          <div class="del">
-            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-              <path d="M1 1L7 7L1 13" stroke="#040404" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        <div class="item">
-          <div class="num">2</div>
-          <div class="text">Блок S</div>
-          <div class="del">
-            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-              <path d="M1 1L7 7L1 13" stroke="#040404" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        <div class="item active">
-          <div class="num">3</div>
-          <div class="text">Блок G</div>
-        </div>
-      </div>
-      <?php $i = 1; if(have_rows('block_G', 'options')) : while(have_rows('block_G', 'options')) : the_row();  ?>
-      <div class="calc-wrapper-item <?php if ($i != 1) { echo 'wrap-nav'; } ?>"  <?php if ($i == 1 || $i == 2) { echo 'style="display: block"'; } else {
-        echo 'style="display: none"'; 
-      } ?> data-id="<?php the_sub_field('value'); ?>">
+      <?php if(have_rows('block_S', 'options')) : while(have_rows('block_S', 'options')) : the_row(); ?>
+      <div class="calc-wrapper-item" data-id="<?php the_sub_field('value'); ?>">
         <b class="title">
           <?php the_sub_field('title'); ?>
         </b>
@@ -385,19 +245,85 @@
           </div>
           <?php endwhile; endif; ?>
         </div>
-        <?php if ($i != 1) { ?> 
-          <div class="button mini-next disabled">
-            Далее
-          </div>
-        <?php } $i++; ?>
       </div>
       <?php endwhile; endif; ?>
-      <div class="button next calculate" style="display: none">
+      <div class="button next">
+          Далее
+      </div>
+    </div>
+    <!-- /.block_S -->
+    <div class="step block_G" id="block_G"style="display: none" >
+      <div class="bread">
+        <div class="item ">
+          <div class="num">1</div>
+          <div class="text ">Блок Е</div>
+          <div class="del">
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
+              <path d="M1 1L7 7L1 13" stroke="#040404" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="item">
+          <div class="num">2</div>
+          <div class="text">Блок S</div>
+          <div class="del">
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
+              <path d="M1 1L7 7L1 13" stroke="#040404" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="item active">
+          <div class="num">3</div>
+          <div class="text">Блок G</div>
+        </div>
+      </div>
+      <?php if(have_rows('block_G', 'options')) : while(have_rows('block_G', 'options')) : the_row(); ?>
+      <div class="calc-wrapper-item" data-id="<?php the_sub_field('value'); ?>">
+        <b class="title">
+          <?php the_sub_field('title'); ?>
+        </b>
+        <div class="questions">
+          <?php if(have_rows('question')) : while(have_rows('question')) : the_row(); ?>
+          <div class="questions-item" data-id="<?php the_sub_field('id'); ?>" data-text="<?php the_sub_field('title'); ?>">
+            <div class="questions-item-title">
+              <?php if (get_sub_field('quote')) { ?> 
+              <div class="quote-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M9.99996 18.3334C14.5833 18.3334 18.3333 14.5834 18.3333 10.0001C18.3333 5.41675 14.5833 1.66675 9.99996 1.66675C5.41663 1.66675 1.66663 5.41675 1.66663 10.0001C1.66663 14.5834 5.41663 18.3334 9.99996 18.3334Z" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M10 6.66675V10.8334" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9.99512 13.3333H10.0026" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="quote">
+                  <?php the_sub_field('quote'); ?>
+                </div>
+              </div>
+              <?php } ?>
+              <b><?php the_sub_field('title'); ?></b>
+            </div>
+            <div class="questions-item-content">
+              <?php 
+              $index = 1;
+              $question_id = get_sub_field('id');
+              if(have_rows('answers')) : while(have_rows('answers')) : the_row(); ?>
+              <div class="item">
+                <input type="radio" id="<?php echo $question_id . '-' . $index;  ?>" name="<?php echo $question_id;  ?>" value="<?php the_sub_field('ball'); ?>">
+                <label for="<?php echo $question_id . '-' . $index; $index++;  ?>">
+                  <?php the_sub_field('answer'); ?>
+                </label>
+              </div>
+              <?php endwhile; endif; ?>
+            </div>
+          </div>
+          <?php endwhile; endif; ?>
+        </div>
+      </div>
+      <?php endwhile; endif; ?>
+      <div class="button next calculate">
           Получить результат
       </div>
     </div>
     <!-- /.block_G -->
-    <div class="step result" style="display: none">
+    <div class="step result"   style="display: none">
       <div class="calc-wrapper-item result-title">
         <b class="title">
           ДАННЫЕ КОМПАНИИ
@@ -409,9 +335,9 @@
         <span>Сектор компании</span>
         <p class="company_ind">Промышленный сектор</p>
       </div>
-      <div class="calc-wrapper-item  result-wrap">
+      <div class="calc-wrapper-item result-wrap">
         <b class="title">БЛОК Е</b>
-        <div class="result-wrap-item ">
+        <div class="result-wrap-item">
           <div class="result-wrap-item-bar" >
             <div class="left">
               <div class="bar">
@@ -420,7 +346,7 @@
             </div>
             <div class="right">
               <p>
-                ЭКОЛОГИЧЕСКИЙ МЕНЕДЖМЕНТ
+                E1 ЭКОЛОГИЧЕСКИЙ МЕНЕДЖМЕНТ
               </p>
             </div>
             <div class="moar">
@@ -436,7 +362,7 @@
             </div>
             <div class="right">
               <p>
-                ВОЗДЕЙСТВИЕ НА ОКРУЖАЮЩУЮ СРЕДУ        
+                E2 ВОЗДЕЙСТВИЕ НА ОКРУЖАЮЩУЮ СРЕДУ        
               </p>
             </div>
             <div class="moar">
@@ -452,7 +378,7 @@
             </div>
             <div class="right">
               <p>
-                ИСПОЛЬЗОВАНИЕ РЕСУРСОВ        
+                E3 ИСПОЛЬЗОВАНИЕ РЕСУРСОВ        
               </p>
             </div>
             <div class="moar">
@@ -468,7 +394,7 @@
             </div>
             <div class="right">
               <p>
-                ПОДВЕРЖЕННОСТЬ КОМПАНИИ РИCKAM, СВЯЗАННЫМ С ОКРУЖАЮЩЕЙ СРЕДОЙ        
+                E4 ПОДВЕРЖЕННОСТЬ КОМПАНИИ РИCKAM, СВЯЗАННЫМ С ОКРУЖАЮЩЕЙ СРЕДОЙ        
               </p>
             </div>
             <div class="moar">
@@ -484,7 +410,7 @@
             </div>
             <div class="right">
               <p>
-                ОТВЕТСТВЕННОЕ ФИНАНСИРОВАНИЕ        
+                E5 ОТВЕТСТВЕННОЕ ФИНАНСИРОВАНИЕ        
               </p>
             </div>
             <div class="moar">
@@ -494,7 +420,7 @@
           </div>
         </div>
         <b class="title">БЛОК S</b>
-        <div class="result-wrap-item ">
+        <div class="result-wrap-item">
           <div class="result-wrap-item-bar">
             <div class="left">
               <div class="bar">
@@ -503,7 +429,7 @@
             </div>
             <div class="right">
               <p>
-                ОБЩЕСТВО        
+                S1 ОБЩЕСТВО        
               </p>
             </div>
             <div class="moar">
@@ -519,7 +445,7 @@
             </div>
             <div class="right">
               <p>
-                ЧЕЛОВЕЧЕСКИЙ КАПИТАЛ              
+                S2 ЧЕЛОВЕЧЕСКИЙ КАПИТАЛ              
               </p>
             </div>
             <div class="moar">
@@ -535,7 +461,7 @@
             </div>
             <div class="right">
               <p>
-                ПРАВА ЧЕЛОВЕКА               
+                S3 ПРАВА ЧЕЛОВЕКА               
               </p>
             </div>
             <div class="moar">
@@ -551,7 +477,7 @@
             </div>
             <div class="right">
               <p>
-                КЛИЕНТЫ               
+                S4 КЛИЕНТЫ               
               </p>
             </div>
             <div class="moar">
@@ -567,7 +493,7 @@
             </div>
             <div class="right">
               <p>
-                ОТВЕТСТВЕННОЕ ФИНАНСИРОВАНИЕ               
+                S5 ОТВЕТСТВЕННОЕ ФИНАНСИРОВАНИЕ               
               </p>
             </div>
             <div class="moar">
@@ -583,7 +509,7 @@
             </div>
             <div class="right">
               <p>
-                ПОДВЕРЖЕННОСТЬ КОМПАНИИ СОЦИАЛЬНЫМ РИСКАМ                       
+                S6 ПОДВЕРЖЕННОСТЬ КОМПАНИИ СОЦИАЛЬНЫМ РИСКАМ                       
               </p>
             </div>
             <div class="moar">
@@ -593,7 +519,7 @@
           </div>
         </div>
         <b class="title">БЛОК G</b>
-        <div class="result-wrap-item ">
+        <div class="result-wrap-item">
           <div class="result-wrap-item-bar">
             <div class="left">
               <div class="bar">
@@ -602,7 +528,7 @@
             </div>
             <div class="right">
               <p>
-                СТРУКТУРА СОБСТВЕННОСТИ        
+                G1 СТРУКТУРА СОБСТВЕННОСТИ        
               </p>
             </div>
             <div class="moar">
@@ -618,7 +544,7 @@
             </div>
             <div class="right">
               <p>
-                ИНТЕРЕСЫ И ВЛИЯНИЕ АКЦИОНЕРОВ / УЧАСТНИКОВ                  
+                G2 ИНТЕРЕСЫ И ВЛИЯНИЕ АКЦИОНЕРОВ / УЧАСТНИКОВ                  
               </p>
             </div>
             <div class="moar">
@@ -634,7 +560,7 @@
             </div>
             <div class="right">
               <p>
-                СТРАТЕГИЯ                       
+                G3 СТРАТЕГИЯ                       
               </p>
             </div>
             <div class="moar">
@@ -650,7 +576,7 @@
             </div>
             <div class="right">
               <p>
-                ВЗАИМОДЕЙСТВИЕ С ЗАИНТЕРЕСОВАННЫМИ СТОРОНАМИ (СТЕЙКХОЛДЕРАМИ)                     
+                G4 ВЗАИМОДЕЙСТВИЕ С ЗАИНТЕРЕСОВАННЫМИ СТОРОНАМИ (СТЕЙКХОЛДЕРАМИ)                     
               </p>
             </div>
             <div class="moar">
@@ -666,7 +592,7 @@
             </div>
             <div class="right">
               <p>
-                УПРАВЛЕНИЕ РИСКАМИ И ВНУТРЕННИЙ КОНТРОЛЬ                       
+                G5 УПРАВЛЕНИЕ РИСКАМИ И ВНУТРЕННИЙ КОНТРОЛЬ                       
               </p>
             </div>
             <div class="moar">
@@ -682,7 +608,7 @@
             </div>
             <div class="right">
               <p>
-                РАСКРЫТИЕ ИНФОРМАЦИИ                               
+                G6 РАСКРЫТИЕ ИНФОРМАЦИИ                               
               </p>
             </div>
             <div class="moar">
@@ -698,7 +624,7 @@
             </div>
             <div class="right">
               <p>
-                УПРАВЛЕНИЕ УСТОЙЧИВЫМ РАЗВИТИЕМ                                    
+                G7 УПРАВЛЕНИЕ УСТОЙЧИВЫМ РАЗВИТИЕМ                                    
               </p>
             </div>
             <div class="moar">
@@ -714,7 +640,7 @@
             </div>
             <div class="right">
               <p>
-                УПРАВЛЕНИЕ ОТВЕТСТВЕННЫМ ИНВЕСТИРОВАНИЕМ                                     
+                G8 УПРАВЛЕНИЕ ОТВЕТСТВЕННЫМ ИНВЕСТИРОВАНИЕМ                                     
               </p>
             </div>
             <div class="moar">
@@ -732,7 +658,7 @@
             <div class="all">
               <p>Блок Е</p>
               <b id="chart_all_E">0.65</b>
-              <p id="textE">Высокий</p>
+              <p>Высокий</p>
             </div>
           </div>
           <div class="right" id="list_E">
@@ -777,7 +703,7 @@
             <div class="all">
               <p>Блок S</p>
               <b id="chart_all_S">0.65</b>
-              <p id="textS">Высокий</p>
+              <p>Высокий</p>
             </div>
           </div>
           <div class="right" id="list_S">
@@ -828,7 +754,7 @@
             <div class="all" style="bottom: 6px">
               <p>Блок G</p>
               <b id="chart_all_G">0.65</b>
-              <p id="textG">Высокий</p>
+              <p>Высокий</p>
             </div>
           </div>
           <div class="right" id="list_G">
@@ -874,7 +800,7 @@
                 G7. УПРАВЛЕНИЕ УСТОЙЧИВЫМ РАЗВИТИЕМ
               </div>
             </div>
-            <div class="result-item" data-id="G8">
+            <div class="result-item" data-id="G9">
               <div class="color" style="background: red"></div>
               <div class="text">
                 G8. УПРАВЛЕНИЕ ОТВЕТСТВЕННЫМ ИНВЕСТИРОВАНИЕМ
@@ -884,14 +810,14 @@
         </div>
       </div>
       <div class="result-diagramm ESG_diagramm">
-        <b class="title">РЕЙТИНГ ESG</b>
+        <b class="title">РЕЙТИНГ БЛОКА G</b>
         <div class="wrap">
           <div class="left left_G">
             <canvas id="chart_ESG" width="470px" height="230px"></canvas>
-            <div class="all" style="bottom: 6px; background: #154D80">
+            <div class="all" style="bottom: 6px">
               <p>Блок ESG</p>
               <b id="chart_all_ESG">0.65</b>
-              <p id="textESG">Высокий</p>
+              <p>Высокий</p>
             </div>
           </div>
           <div class="right" id="list_ESG">
@@ -900,19 +826,14 @@
         </div>
       </div>
       <div class="result-btns">
-        <a href="<?php the_permalink(2); ?>" class="button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-            <path d="M18.75 18.25H2.25M10.5 15.25V1.75M10.5 15.25L14.75 11.25M10.5 15.25L6.25 11.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Скачать отчет
-        </a>
-        <!-- <a href="https://www.ra-national.ru/wp-content/uploads/2023/04/meth_esg_-4.0.pdf" target="blank" class="link">
+        <?php echo do_shortcode('[save_as_pdf_pdfcrowd]'); ?>
+        <a href="https://www.ra-national.ru/wp-content/uploads/2023/04/meth_esg_-4.0.pdf" target="blank" class="link">
           МЕТОДИКА РАССЧЕТА
-        </a> -->
+        </a>
       </div>
       <div class="get-q">
-        <!-- <b>Остались вопросы?</b>
-        <p>Свяжитесь с нами любым удобным способом</p> -->
+        <b>Остались вопросы?</b>
+        <p>Свяжитесь с нами любым удобным способом</p>
         <div class="links">
           <a href="mailto:info@env.ru" class="email">
             <div class="icon">
