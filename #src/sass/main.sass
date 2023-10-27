@@ -74,7 +74,6 @@
   .select2-dropdown
     border: none
     box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.09)
-    margin-top: 30px
     .select2-search
       display: none
     ul
@@ -985,8 +984,8 @@ h1
 
 
 .result-wrap-item-bar
-  border-bottom: 1px solid rgba(#000, .2)
-  padding-bottom: 15px
+  border-bottom: 1px solid rgba(#000, .5)
+  padding-bottom: 30px
   &:last-child
     border-bottom: none
 
@@ -1053,7 +1052,11 @@ h1
 
 
 .mini-bar
-  border-bottom: 1px solid rgba(#000, .2)
+  border-bottom: 1px solid rgba(#000, .5)
+  background-color: #D9D9D9
+  .left .bar
+    border-left-color: #D9D9D9
+    border-right-color: #D9D9D9
   &:last-child
     border-bottom: none
 
@@ -1083,6 +1086,34 @@ h1
   .result-diagramm .wrap .left canvas
     min-width: 315px
   
+
+.info-select
+  position: relative
+  .quote-toggle
+    position: absolute
+    display: flex
+    align-items: center
+    justify-content: center
+    right: -50px
+    top: 50%
+    transform: translateY(-50%)
+    cursor: pointer
+    svg
+      height: 30px
+      width: 30px
+    &:hover
+      svg path
+        fill: #d9d9d9
+@media (max-width: 992px)
+  .info-select
+    .quote-toggle
+      display: flex
+      justify-content: center
+      align-items: center
+      right: 20px
+      height: 24px
+      width: 24px
+
 
 
 @import "./assets/_popup"

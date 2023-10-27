@@ -519,6 +519,22 @@
           Скачать отчет
         </div>
       </div>
+      <div class="get-q">
+        <!-- <b>Остались вопросы?</b>
+        <p>Свяжитесь с нами любым удобным способом</p> -->
+        <div class="links">
+          <a href="mailto:info@env.ru" class="email">
+            <div class="icon">
+            </div>
+            info@env.ru
+          </a>
+          <a href="tel:+7 495 118 4400" class="phone">
+            <div class="icon">
+            </div>
+            +7 495 118 4400
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
