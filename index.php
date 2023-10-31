@@ -1,935 +1,347 @@
 <?php get_header(); ?>
 
-<section class="calc container ">
-  <h1 class="title">
-    РАСЧЕТ РЕЙТИНГА ESG
-  </h1>
-  <div class="calc-wrapper">
-    <div class="step registation" style="display: block">
-      <div class="calc-wrapper-item" >
-        <b class="title">Регистрация</b>
-        <div class="label">Данные компании</div>
-        <input type="text" id="company_name" placeholder="Название организации">
-        <div class="select">
-          <select name="company_cat" id="company_cat">
-            <option></option>
-            <option value="not_fin">Нефинансовые компании</option>
-            <option value="fin">Финансовые компании</option>
-          </select>
-          
+<div class="bg-section">
+  <section class="offer page-top">
+    <div class="container">
+      <div class="offer-wrap">
+        <div class="offer-wrap-left">
+          <h1>
+            <?php the_field('offer_title', 'options'); ?>
+          </h1>
+          <p>
+            <?php the_field('offer_subtitle', 'options'); ?>
+          </p>
+          <div class="get-form">
+            <div class="input line">
+              <input type="text" class="input-from" placeholder="Moving from">
+              <p>Moving from</p>
+            </div>
+            <div class="input">
+              <input type="text" class="input-to" placeholder="Moving to">
+              <p>Moving to</p>
+            </div>
+            <a href="<?php the_permalink(79); ?>" class="button button-accent">
+              Quote
+            </a>
+          </div>
         </div>
-        <div class="select hidden info-select">
-          <select name="company_cat_ne_fin" id="company_cat_ne_fin">
-            <option></option>
-            <?php if(have_rows('fin', 'options')) : while(have_rows('fin', 'options')) : the_row(); ?>
-            <option value="<?php the_sub_field('company'); ?>"><?php the_sub_field('company'); ?></option>
-            <?php endwhile; endif; ?>
-          </select>
-          <div class="quote-toggle">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M9.99996 18.3334C14.5833 18.3334 18.3333 14.5834 18.3333 10.0001C18.3333 5.41675 14.5833 1.66675 9.99996 1.66675C5.41663 1.66675 1.66663 5.41675 1.66663 10.0001C1.66663 14.5834 5.41663 18.3334 9.99996 18.3334Z" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10 6.66675V10.8334" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M9.99512 13.3333H10.0026" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div class="quote" style="display: none">
-              <b style="margin-bottom: 20px; display: block;">Нефинансовые услуги – сфера услуг (кроме финансовых). Включает в себя следующие виды услуг: </b>
-              <ul>
-                <li>
-                  Обеспечение электрической энергией, газом и паром; кондиционирование воздуха (Раздел D, согласно ОК 029-2014 (КДЕС Ред. 2). «Общероссийский классификатор видов экономической деятельности" (далее ОКВЭД)
-                </li>
-                <li>
-                  Водоснабжение, водоотведение, организация сбора и утилизации отходов (Раздел Е, согласно ОКВЭД)
-                </li>
-                <li>
-                  Транспортирование и хранение (Раздел Н, согласно ОКВЭД)
-                </li>
-                <li>
-                  Деятельность гостиниц и предприятий общественного питания (Раздел I, согласно ОКВЭД)
-                </li>
-                <li>
-                  Деятельность по операциям с недвижимым имуществом (Раздел L, согласно ОКВЭД)
-                </li>
-                <li>
-                  Деятельность профессиональная, научная и техническая (Раздел M, согласно ОКВЭД)
-                </li>
-                <li>
-                  Образование (Раздел P, согласно ОКВЭД)
-                </li>
-                <li>
-                  Деятельность в области здравоохранения и социальных услуг (Раздел Q, согласно ОКВЭД)
-                </li>
-                <li>
-                  Деятельность в области культуры, спорта, организации досуга и развлечений (Раздел R, согласно ОКВЭД)
-                </li>
-                <li>
-                  Предоставление прочих видов услуг (Раздел S, согласно ОКВЭД)
-                </li>
-                <li>
-                  Деятельность издательская (Раздел J.  Подраздел 58, согласно ОКВЭД)
-                </li>
-                <li>
-                  Производство кинофильмов, видеофильмов и телевизионных программ, издание звукозаписей и нот (Раздел J.  Подраздел 59, согласно ОКВЭД)
-                </li>
-                <li>
-                  Деятельность в области телевизионного и радиовещания (Раздел J.  Подраздел 60, согласно ОКВЭД)
-                </li>
-                <li>
-                  Деятельность в сфере телекоммуникаций (Раздел J.  Подраздел 61, согласно ОКВЭД)
-                </li>
-              </ul>
+        <div class="offer-wrap-right">
+          <img src="<?php the_field('offer_img', 'options'); ?>" style="min-height: 280px" alt="<?php the_field('offer_title', 'options'); ?>">
+        </div>
+        <div class="offer-wrap-cards">
+          <?php if(have_rows('offer_cards', 'options')) : while(have_rows('offer_cards', 'options')) : the_row(); ?>
+          <a href="<?php the_sub_field('link', 'options'); ?>" class="offer-wrap-cards-item">
+            <b><?php the_sub_field('name', 'options'); ?></b>
+            <p><?php the_sub_field('text', 'options'); ?></p>
+          </a>
+          <?php endwhile; endif; ?>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="advantages wow animate__animated animate__fadeInUp">
+    <div class="container">
+      <div class="advantages-wrap ">
+        <h2 class="title wow animate__animated animate__fadeInUp title-reverse">
+          <?php the_field('advantages_title', 'options'); ?>
+        </h2>
+        <div class="advantages-wrap-img ">
+          <img src="<?php the_field('advantages_image', 'options'); ?>" alt="truck">
+        </div>
+        <div class="advantages-wrap-cards ">
+          <?php if(have_rows('advantages_cards', 'options')) : while(have_rows('advantages_cards', 'options')) : the_row(); ?>
+          <div class="item">
+            <div class="icon">
+              <img src="<?php the_sub_field('icon'); ?>" alt="icon">
+            </div>
+            <b><?php the_sub_field('title'); ?></b>
+          </div>
+          <?php endwhile; endif; ?>
+        </div>
+        <div class="advantages-wrap-text">
+          <div class="item left">
+            <?php the_field('advantage_text', 'options'); ?>
+          </div>
+          <div class="item right" style="background-image: url(<?php the_field('advantage_right_image', 'options'); ?>);">
+            <b><?php the_field('advantage_image_title', 'options'); ?></b>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
-            </div>
-          </div>
-        </div>
-        <div class="select hidden">
-          <select name="company_cat_fin" id="company_cat_fin">
-            <option></option>
-            <?php if(have_rows('ne_fin', 'options')) : while(have_rows('ne_fin', 'options')) : the_row(); ?>
-            <option value="<?php the_sub_field('company'); ?>"><?php the_sub_field('company'); ?></option>
-            <?php endwhile; endif; ?>
-          </select>
-        </div>
-        <div class="button start unactive">
-          Начать опрос
-        </div>
+<section class="reviews wow animate__animated animate__fadeInUp">
+  <div class="container">
+    <h2 class="title ">
+      <?php the_field('reviews_title', 'options'); ?>
+    </h2>
+    <div class="swiper-nav reviews-main">
+      <div class="arr arr-prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5303 5.46967C15.8232 5.76256 15.8232 6.23744 15.5303 6.53033L10.0607 12L15.5303 17.4697C15.8232 17.7626 15.8232 18.2374 15.5303 18.5303C15.2374 18.8232 14.7626 18.8232 14.4697 18.5303L8.46967 12.5303C8.17678 12.2374 8.17678 11.7626 8.46967 11.4697L14.4697 5.46967C14.7626 5.17678 15.2374 5.17678 15.5303 5.46967Z" fill="white"/>
+        </svg>
       </div>
-    </div>
-    <!-- /.registation -->
-    <div class="step block_E" id="block_E" style="display: none">
-      <div class="bread">
-        <div class="item active">
-          <div class="num">1</div>
-          <div class="text ">Блок Е</div>
-          <div class="del">
-            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-              <path d="M1 1L7 7L1 13" stroke="#040404" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        <div class="item">
-          <div class="num">2</div>
-          <div class="text">Блок S</div>
-          <div class="del">
-            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-              <path d="M1 1L7 7L1 13" stroke="#040404" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        <div class="item">
-          <div class="num">3</div>
-          <div class="text">Блок G</div>
-        </div>
-      </div>
-      <?php if(have_rows('block_E', 'options')) : while(have_rows('block_E', 'options')) : the_row(); ?>
-      <div class="calc-wrapper-item wrap-nav" style="display: none" data-id="<?php the_sub_field('value'); ?>">
-        <b class="title">
-          <?php the_sub_field('title'); ?>
-        </b>
-        <div class="questions">
-          <?php if(have_rows('question')) : while(have_rows('question')) : the_row(); ?>
-          <div class="questions-item" data-id="<?php the_sub_field('id'); ?>" data-text="<?php the_sub_field('title'); ?>">
-            <div class="questions-item-title">
-              <?php if (get_sub_field('quote')) { ?> 
-              <div class="quote-toggle">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M9.99996 18.3334C14.5833 18.3334 18.3333 14.5834 18.3333 10.0001C18.3333 5.41675 14.5833 1.66675 9.99996 1.66675C5.41663 1.66675 1.66663 5.41675 1.66663 10.0001C1.66663 14.5834 5.41663 18.3334 9.99996 18.3334Z" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M10 6.66675V10.8334" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M9.99512 13.3333H10.0026" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <div class="quote">
-                  <?php the_sub_field('quote'); ?>
-                </div>
-              </div>
-              <?php } ?>
-              <b><?php the_sub_field('title'); ?></b>
-            </div>
-            <div class="questions-item-content">
+      <div class="reviews-wrap swiper wow animate__animated animate__fadeInUp">
+        <div class="swiper-wrapper reviews-slider">
+          <?php if(have_rows('reviews_slider', 'options')) : while(have_rows('reviews_slider', 'options')) : the_row(); ?>
+          <div class="item swiper-slide">
+            <div class="star-rating">
               <?php 
-              $index = 1;
-              $question_id = get_sub_field('id');
-              if(have_rows('answers')) : while(have_rows('answers')) : the_row(); ?>
-              <div class="item">
-                <input type="radio" id="<?php echo $question_id . '-' . $index;  ?>" name="<?php echo $question_id;  ?>" value="<?php the_sub_field('ball'); ?>">
-                <label for="<?php echo $question_id . '-' . $index; $index++;  ?>">
-                  <?php the_sub_field('answer'); ?>
-                </label>
+                $stars = get_sub_field('star_rating');
+                for ($i = 0; $i < $stars; $i++ ) { 
+              ?>
+              <img src="<?php echo get_template_directory_uri(); ?>/img/icons/star.svg" alt="star">
+              <?php } ?>
+            </div>
+            <p>
+              <?php the_sub_field('content'); ?>
+            </p>
+            <div class="item-bottom">
+              <?php if (get_sub_field('source_link') && get_sub_field('icon')) { ?> 
+              <a class="icon" href="<?php the_sub_field('source_link'); ?>">
+                <img src="<?php the_sub_field('icon'); ?>" alt="icon">
+              </a>
+              <?php } else if (!get_sub_field('source_link') && get_sub_field('icon')) { ?>
+                <div class="icon">
+                  <img src="<?php the_sub_field('icon'); ?>" alt="icon">
+                </div>
+              <?php } ?>
+              <div class="name">
+                <b><?php the_sub_field('name'); ?></b>
+                <small><?php the_sub_field('date'); ?></small>
               </div>
-              <?php endwhile; endif; ?>
             </div>
           </div>
           <?php endwhile; endif; ?>
-        </div>
-        <div class="button mini-next disabled">
-          Далее
+
         </div>
       </div>
-      <?php endwhile; endif; ?>
-      <div class="button next">
-          Далее
-      </div>
-    </div>
-    <!-- /.block_E -->
-    <div class="step block_E_fin" id="block_E" style="display: none">
-      <div class="bread">
-        <div class="item active">
-          <div class="num">1</div>
-          <div class="text ">Блок Е</div>
-          <div class="del">
-            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-              <path d="M1 1L7 7L1 13" stroke="#040404" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        <div class="item">
-          <div class="num">2</div>
-          <div class="text">Блок S</div>
-          <div class="del">
-            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-              <path d="M1 1L7 7L1 13" stroke="#040404" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        <div class="item">
-          <div class="num">3</div>
-          <div class="text">Блок G</div>
-        </div>
-      </div>
-      <?php if(have_rows('block_E_fin', 'options')) : while(have_rows('block_E_fin', 'options')) : the_row(); ?>
-      <div class="calc-wrapper-item wrap-nav"  style="display: none" data-id="<?php the_sub_field('value'); ?>">
-        <b class="title">
-          <?php the_sub_field('title'); ?>
-        </b>
-        <div class="questions">
-          <?php if(have_rows('question')) : while(have_rows('question')) : the_row(); ?>
-          <div class="questions-item" data-id="<?php the_sub_field('id'); ?>" data-text="<?php the_sub_field('title'); ?>"> 
-            <div class="questions-item-title">
-              <?php if (get_sub_field('quote')) { ?> 
-              <div class="quote-toggle">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M9.99996 18.3334C14.5833 18.3334 18.3333 14.5834 18.3333 10.0001C18.3333 5.41675 14.5833 1.66675 9.99996 1.66675C5.41663 1.66675 1.66663 5.41675 1.66663 10.0001C1.66663 14.5834 5.41663 18.3334 9.99996 18.3334Z" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M10 6.66675V10.8334" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M9.99512 13.3333H10.0026" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <div class="quote">
-                  <?php the_sub_field('quote'); ?>
-                </div>
-              </div>
-              <?php } ?>
-              <b><?php the_sub_field('title'); ?></b>
-            </div>
-            <div class="questions-item-content">
-              <?php 
-              $index = 1;
-              $question_id = get_sub_field('id');
-              if(have_rows('answers')) : while(have_rows('answers')) : the_row(); ?>
-              <div class="item">
-                <input type="radio" id="<?php echo $question_id . '-' . $index;  ?>" name="<?php echo $question_id;  ?>" value="<?php the_sub_field('ball'); ?>">
-                <label for="<?php echo $question_id . '-' . $index; $index++;  ?>">
-                  <?php the_sub_field('answer'); ?>
-                </label>
-              </div>
-              <?php endwhile; endif; ?>
-            </div>
-          </div>
-          <?php endwhile; endif; ?>
-        </div>
-        <div class="button mini-next disabled">
-          Далее
-        </div>
-      </div>
-      <?php endwhile; endif; ?>
-      <div class="button next">
-          Далее
+      <div class="arr arr-next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8.46967 5.46967C8.17678 5.76256 8.17678 6.23744 8.46967 6.53033L13.9393 12L8.46967 17.4697C8.17678 17.7626 8.17678 18.2374 8.46967 18.5303C8.76256 18.8232 9.23744 18.8232 9.53033 18.5303L15.5303 12.5303C15.8232 12.2374 15.8232 11.7626 15.5303 11.4697L9.53033 5.46967C9.23744 5.17678 8.76256 5.17678 8.46967 5.46967Z" fill="white"/>
+        </svg>
       </div>
     </div>
-    <!-- /.block_E_fin -->
-    <div class="step block_S" id="block_S" style="display: none">
-      <div class="bread">
-        <div class="item ">
-          <div class="num">1</div>
-          <div class="text ">Блок Е</div>
-          <div class="del">
-            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-              <path d="M1 1L7 7L1 13" stroke="#040404" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        <div class="item active">
-          <div class="num">2</div>
-          <div class="text">Блок S</div>
-          <div class="del">
-            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-              <path d="M1 1L7 7L1 13" stroke="#040404" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        <div class="item">
-          <div class="num">3</div>
-          <div class="text">Блок G</div>
-        </div>
-      </div>
-      <?php $si = 1;  if(have_rows('block_S', 'options')) : while(have_rows('block_S', 'options')) : the_row(); ?>
-      <div class="calc-wrapper-item wrap-nav "  <?php if ($si == 1) { echo 'style="display: block"'; } else {
-        echo 'style="display: none"'; 
-      } $si++; ?> data-id="<?php the_sub_field('value'); ?>">
-        <b class="title">
-          <?php the_sub_field('title'); ?>
-        </b>
-        <div class="questions">
-          <?php if(have_rows('question')) : while(have_rows('question')) : the_row(); ?>
-          <div class="questions-item " data-id="<?php the_sub_field('id'); ?>" data-text="<?php the_sub_field('title'); ?>">
-            <div class="questions-item-title">
-              <?php if (get_sub_field('quote')) { ?> 
-              <div class="quote-toggle">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M9.99996 18.3334C14.5833 18.3334 18.3333 14.5834 18.3333 10.0001C18.3333 5.41675 14.5833 1.66675 9.99996 1.66675C5.41663 1.66675 1.66663 5.41675 1.66663 10.0001C1.66663 14.5834 5.41663 18.3334 9.99996 18.3334Z" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M10 6.66675V10.8334" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M9.99512 13.3333H10.0026" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <div class="quote">
-                  <?php the_sub_field('quote'); ?>
-                </div>
-              </div>
-              <?php } ?>
-              <b><?php the_sub_field('title'); ?></b>
-            </div>
-            <div class="questions-item-content">
-              <?php 
-              $index = 1;
-              $question_id = get_sub_field('id');
-              if(have_rows('answers')) : while(have_rows('answers')) : the_row(); ?>
-              <div class="item">
-                <input type="radio" id="<?php echo $question_id . '-' . $index;  ?>" name="<?php echo $question_id;  ?>" value="<?php the_sub_field('ball'); ?>">
-                <label for="<?php echo $question_id . '-' . $index; $index++;  ?>">
-                  <?php the_sub_field('answer'); ?>
-                </label>
-              </div>
-              <?php endwhile; endif; ?>
-            </div>
-          </div>
-          <?php endwhile; endif; ?>
-        </div>
-        <div class="button mini-next disabled">
-          Далее
-        </div>
-      </div>
-      <?php endwhile; endif; ?>
-      <div class="button next">
-          Далее
-      </div>
-    </div>
-    <!-- /.block_S -->
-    <div class="step block_G" id="block_G"style="display: none" >
-      <div class="bread">
-        <div class="item ">
-          <div class="num">1</div>
-          <div class="text ">Блок Е</div>
-          <div class="del">
-            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-              <path d="M1 1L7 7L1 13" stroke="#040404" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        <div class="item">
-          <div class="num">2</div>
-          <div class="text">Блок S</div>
-          <div class="del">
-            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-              <path d="M1 1L7 7L1 13" stroke="#040404" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        <div class="item active">
-          <div class="num">3</div>
-          <div class="text">Блок G</div>
-        </div>
-      </div>
-      <?php $i = 1; if(have_rows('block_G', 'options')) : while(have_rows('block_G', 'options')) : the_row();  ?>
-      <div class="calc-wrapper-item <?php if ($i != 1) { echo 'wrap-nav'; } ?>"  <?php if ($i == 1 || $i == 2) { echo 'style="display: block"'; } else {
-        echo 'style="display: none"'; 
-      } ?> data-id="<?php the_sub_field('value'); ?>">
-        <b class="title">
-          <?php the_sub_field('title'); ?>
-        </b>
-        <div class="questions">
-          <?php if(have_rows('question')) : while(have_rows('question')) : the_row(); ?>
-          <div class="questions-item" data-id="<?php the_sub_field('id'); ?>" data-text="<?php the_sub_field('title'); ?>">
-            <div class="questions-item-title">
-              <?php if (get_sub_field('quote')) { ?> 
-              <div class="quote-toggle">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M9.99996 18.3334C14.5833 18.3334 18.3333 14.5834 18.3333 10.0001C18.3333 5.41675 14.5833 1.66675 9.99996 1.66675C5.41663 1.66675 1.66663 5.41675 1.66663 10.0001C1.66663 14.5834 5.41663 18.3334 9.99996 18.3334Z" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M10 6.66675V10.8334" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M9.99512 13.3333H10.0026" stroke="#8C8C8D" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <div class="quote">
-                  <?php the_sub_field('quote'); ?>
-                </div>
-              </div>
-              <?php } ?>
-              <b><?php the_sub_field('title'); ?></b>
-            </div>
-            <div class="questions-item-content">
-              <?php 
-              $index = 1;
-              $question_id = get_sub_field('id');
-              if(have_rows('answers')) : while(have_rows('answers')) : the_row(); ?>
-              <div class="item">
-                <input type="radio" id="<?php echo $question_id . '-' . $index;  ?>" name="<?php echo $question_id;  ?>" value="<?php the_sub_field('ball'); ?>">
-                <label for="<?php echo $question_id . '-' . $index; $index++;  ?>">
-                  <?php the_sub_field('answer'); ?>
-                </label>
-              </div>
-              <?php endwhile; endif; ?>
-            </div>
-          </div>
-          <?php endwhile; endif; ?>
-        </div>
-        <?php if ($i != 1) { ?> 
-          <div class="button mini-next disabled">
-            Далее
-          </div>
-        <?php } $i++; ?>
-      </div>
-      <?php endwhile; endif; ?>
-      <div class="button next calculate" style="display: none">
-          Получить результат
-      </div>
-    </div>
-    <!-- /.block_G -->
-    <div class="step result" style="display: none">
-      <div class="calc-wrapper-item result-title">
-        <b class="title">
-          ДАННЫЕ КОМПАНИИ
-        </b>
-        <span>Название организации</span>
-        <p class="company_name">ООО РОМАШКА</p>
-        <span>Категория компании</span>
-        <p class="company_cat">Строительство</p>
-        <span>Сектор компании</span>
-        <p class="company_ind">Промышленный сектор</p>
-      </div>
-      <div class="calc-wrapper-item  result-wrap">
-        <b class="title">БЛОК Е</b>
-        <div class="result-wrap-item ">
-          <div class="result-wrap-item-bar" >
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_E1"><p>0%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                ЭКОЛОГИЧЕСКИЙ МЕНЕДЖМЕНТ
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_E1"></div>
-          </div>
-          <div class="result-wrap-item-bar">
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_E2"><p>50%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                ВОЗДЕЙСТВИЕ НА ОКРУЖАЮЩУЮ СРЕДУ        
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_E2"></div>
-          </div>
-          <div class="result-wrap-item-bar">
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_E3"><p>50%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                ИСПОЛЬЗОВАНИЕ РЕСУРСОВ        
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_E3"></div>
-          </div>
-          <div class="result-wrap-item-bar">
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_E4"><p>50%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                ПОДВЕРЖЕННОСТЬ КОМПАНИИ РИCKAM, СВЯЗАННЫМ С ОКРУЖАЮЩЕЙ СРЕДОЙ        
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_E4"></div>
-          </div>
-          <div class="result-wrap-item-bar">
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_E5"><p>50%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                ОТВЕТСТВЕННОЕ ФИНАНСИРОВАНИЕ        
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_E5"></div>
-          </div>
-        </div>
-        <b class="title">БЛОК S</b>
-        <div class="result-wrap-item ">
-          <div class="result-wrap-item-bar">
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_S1"><p>50%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                ОБЩЕСТВО        
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_S1"></div>
-          </div>
-          <div class="result-wrap-item-bar">
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_S2"><p>50%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                ЧЕЛОВЕЧЕСКИЙ КАПИТАЛ              
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_S2"></div>
-          </div>
-          <div class="result-wrap-item-bar">
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_S3"><p>50%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                ПРАВА ЧЕЛОВЕКА               
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_S3"></div>
-          </div>
-          <div class="result-wrap-item-bar">
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_S4"><p>50%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                КЛИЕНТЫ               
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_S4"></div>
-          </div>
-          <div class="result-wrap-item-bar">
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_S5"><p>50%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                ОТВЕТСТВЕННОЕ ФИНАНСИРОВАНИЕ               
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_S5"></div>
-          </div>
-          <div class="result-wrap-item-bar">
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_S6"><p>50%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                ПОДВЕРЖЕННОСТЬ КОМПАНИИ СОЦИАЛЬНЫМ РИСКАМ                       
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_S6"></div>
-          </div>
-        </div>
-        <b class="title">БЛОК G</b>
-        <div class="result-wrap-item ">
-          <div class="result-wrap-item-bar">
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_G1"><p>50%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                СТРУКТУРА СОБСТВЕННОСТИ        
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_G1"></div>
-          </div>
-          <div class="result-wrap-item-bar">
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_G2"><p>50%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                ИНТЕРЕСЫ И ВЛИЯНИЕ АКЦИОНЕРОВ / УЧАСТНИКОВ                  
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_G2"></div>
-          </div>
-          <div class="result-wrap-item-bar">
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_G3"><p>50%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                СТРАТЕГИЯ                       
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_G3"></div>
-          </div>
-          <div class="result-wrap-item-bar">
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_G4"><p>50%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                ВЗАИМОДЕЙСТВИЕ С ЗАИНТЕРЕСОВАННЫМИ СТОРОНАМИ (СТЕЙКХОЛДЕРАМИ)                     
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_G4"></div>
-          </div>
-          <div class="result-wrap-item-bar">
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_G5"><p>50%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                УПРАВЛЕНИЕ РИСКАМИ И ВНУТРЕННИЙ КОНТРОЛЬ                       
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_G5"></div>
-          </div>
-          <div class="result-wrap-item-bar">
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_G6"><p>50%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                РАСКРЫТИЕ ИНФОРМАЦИИ                               
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_G6"></div>
-          </div>
-          <div class="result-wrap-item-bar">
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_G7"><p>50%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                УПРАВЛЕНИЕ УСТОЙЧИВЫМ РАЗВИТИЕМ                                    
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_G7"></div>
-          </div>
-          <div class="result-wrap-item-bar">
-            <div class="left">
-              <div class="bar">
-                <div class="bar-inner bar_G8"><p>50%</p></div>
-              </div>
-            </div>
-            <div class="right">
-              <p>
-                УПРАВЛЕНИЕ ОТВЕТСТВЕННЫМ ИНВЕСТИРОВАНИЕМ                                     
-              </p>
-            </div>
-            <div class="moar">
-              <div>Подробнее</div>
-            </div>
-            <div class="mini-bar-wrapper" id="bar_G8"></div>
-          </div>
-        </div>
-      </div>
-      <div class="result-diagramm">
-        <b class="title">РЕЙТИНГ БЛОКА Е</b>
-        <div class="wrap">
-          <div class="left left_E">
-            <canvas id="chart_E" width="470px" height="230px"></canvas>
-            <div class="all">
-              <p>Блок Е</p>
-              <b id="chart_all_E">0.65</b>
-              <p id="textE">Высокий</p>
-            </div>
-          </div>
-          <div class="right" id="list_E">
-            <div class="result-item" data-id="E1">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                Е1. ЭКОЛОГИЧЕСКИЙ МЕНЕДЖМЕНТ
-              </div>
-            </div>
-            <div class="result-item" data-id="E2">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                Е2. ВОЗДЕЙСТВИЕ НА ОКРУЖАЮЩУЮ СРЕДУ
-              </div>
-            </div>
-            <div class="result-item" data-id="E3">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                Е3. ИСПОЛЬЗОВАНИЕ РЕСУРСОВ
-              </div>
-            </div>
-            <div class="result-item" data-id="E4">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                Е4. ПОДВЕРЖЕННОСТЬ КОМПАНИИ РИCKAM, СВЯЗАННЫМ С ОКРУЖАЮЩЕЙ СРЕДОЙ
-              </div>
-            </div>
-            <div class="result-item" data-id="E5">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                Е5. ОТВЕТСТВЕННОЕ ФИНАНСИРОВАНИЕ
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="result-diagramm">
-        <b class="title">РЕЙТИНГ БЛОКА S</b>
-        <div class="wrap">
-          <div class="left left_S">
-            <canvas id="chart_S" width="470px" height="230px"></canvas>
-            <div class="all">
-              <p>Блок S</p>
-              <b id="chart_all_S">0.65</b>
-              <p id="textS">Высокий</p>
-            </div>
-          </div>
-          <div class="right" id="list_S">
-            <div class="result-item" data-id="S1">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                S1. ОБЩЕСТВО
-              </div>
-            </div>
-            <div class="result-item" data-id="S2">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                S2. ЧЕЛОВЕЧЕСКИЙ КАПИТАЛ
-              </div>
-            </div>
-            <div class="result-item" data-id="S3">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                S3. ПРАВА ЧЕЛОВЕКА
-              </div>
-            </div>
-            <div class="result-item" data-id="S4">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                S4. КЛИЕНТЫ 
-              </div>
-            </div>
-            <div class="result-item" data-id="S5">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                S5. ОТВЕТСТВЕННОЕ ФИНАНСИРОВАНИЕ
-              </div>
-            </div>
-            <div class="result-item" data-id="S6">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                S6. ПОДВЕРЖЕННОСТЬ КОМПАНИИ СОЦИАЛЬНЫМ РИСКАМ
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="result-diagramm">
-        <b class="title">РЕЙТИНГ БЛОКА G</b>
-        <div class="wrap">
-          <div class="left left_G">
-            <canvas id="chart_G" width="470px" height="230px"></canvas>
-            <div class="all" style="bottom: 6px">
-              <p>Блок G</p>
-              <b id="chart_all_G">0.65</b>
-              <p id="textG">Высокий</p>
-            </div>
-          </div>
-          <div class="right" id="list_G">
-            <div class="result-item" data-id="G1">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                G1. СТРУКТУРА СОБСТВЕННОСТИ 
-              </div>
-            </div>
-            <div class="result-item" data-id="G2">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                G2. ИНТЕРЕСЫ И ВЛИЯНИЕ АКЦИОНЕРОВ / УЧАСТНИКОВ
-              </div>
-            </div>
-            <div class="result-item" data-id="G3">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                G3. СТРАТЕГИЯ
-              </div>
-            </div>
-            <div class="result-item" data-id="G4">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                G4. ВЗАИМОДЕЙСТВИЕ С ЗАИНТЕРЕСОВАННЫМИ СТОРОНАМИ (СТЕЙКХОЛДЕРАМИ)
-              </div>
-            </div>
-            <div class="result-item" data-id="G5">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                G5. УПРАВЛЕНИЕ РИСКАМИ И ВНУТРЕННИЙ КОНТРОЛЬ
-              </div>
-            </div>
-            <div class="result-item" data-id="G6">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                G6. РАСКРЫТИЕ ИНФОРМАЦИИ
-              </div>
-            </div>
-            <div class="result-item" data-id="G7">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                G7. УПРАВЛЕНИЕ УСТОЙЧИВЫМ РАЗВИТИЕМ
-              </div>
-            </div>
-            <div class="result-item" data-id="G8">
-              <div class="color" style="background: red"></div>
-              <div class="text">
-                G8. УПРАВЛЕНИЕ ОТВЕТСТВЕННЫМ ИНВЕСТИРОВАНИЕМ
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="result-diagramm ESG_diagramm">
-        <b class="title">РЕЙТИНГ ESG</b>
-        <div class="wrap">
-          <div class="left left_G">
-            <canvas id="chart_ESG" width="470px" height="230px"></canvas>
-            <div class="all" style="bottom: 6px; background: #154D80">
-              <p>Блок ESG</p>
-              <b id="chart_all_ESG">0.65</b>
-              <p id="textESG">Высокий</p>
-            </div>
-          </div>
-          <div class="right" id="list_ESG">
-            
-          </div>
-        </div>
-      </div>
-      <div class="result-btns">
-        <a href="<?php the_permalink(2); ?>" class="button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-            <path d="M18.75 18.25H2.25M10.5 15.25V1.75M10.5 15.25L14.75 11.25M10.5 15.25L6.25 11.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Скачать отчет
-        </a>
-        <!-- <a href="https://www.ra-national.ru/wp-content/uploads/2023/04/meth_esg_-4.0.pdf" target="blank" class="link">
-          МЕТОДИКА РАССЧЕТА
-        </a> -->
-      </div>
-      <div class="get-q">
-        <!-- <b>Остались вопросы?</b>
-        <p>Свяжитесь с нами любым удобным способом</p> -->
-        <div class="links">
-          <a href="mailto:info@env.ru" class="email">
-            <div class="icon">
-            </div>
-            info@env.ru
-          </a>
-          <a href="tel:+7 495 118 4400" class="phone">
-            <div class="icon">
-            </div>
-            +7 495 118 4400
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- /.result -->
+    
   </div>
 </section>
 
+<section class="how wow animate__animated animate__fadeInUp">
+  <div class="container">
+    <h2 class="title  title-sub"><?php the_field('how_title', 'options'); ?></h2>
+    <p class="subtitle"><?php the_field('how_subtitle', 'options'); ?></p>
+    <div class="how-wrap swiper-nav">
+      <div class="arrows">
+        <div class="arr arr-prev">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5303 5.46967C15.8232 5.76256 15.8232 6.23744 15.5303 6.53033L10.0607 12L15.5303 17.4697C15.8232 17.7626 15.8232 18.2374 15.5303 18.5303C15.2374 18.8232 14.7626 18.8232 14.4697 18.5303L8.46967 12.5303C8.17678 12.2374 8.17678 11.7626 8.46967 11.4697L14.4697 5.46967C14.7626 5.17678 15.2374 5.17678 15.5303 5.46967Z" fill="white"/>
+          </svg>
+        </div>
+        <div class="arr arr-next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.46967 5.46967C8.17678 5.76256 8.17678 6.23744 8.46967 6.53033L13.9393 12L8.46967 17.4697C8.17678 17.7626 8.17678 18.2374 8.46967 18.5303C8.76256 18.8232 9.23744 18.8232 9.53033 18.5303L15.5303 12.5303C15.8232 12.2374 15.8232 11.7626 15.5303 11.4697L9.53033 5.46967C9.23744 5.17678 8.76256 5.17678 8.46967 5.46967Z" fill="white"/>
+          </svg>
+        </div>
+      </div>
+      <div class="how-wrap-slider wow animate__animated animate__fadeInUp swiper">
+        <div class="swiper-wrapper">
+          <?php if(have_rows('how_slider', 'options')) : while(have_rows('how_slider', 'options')) : the_row(); ?>
+          <div class="swiper-slide item">
+            <img src="<?php the_sub_field('image'); ?>" alt="step image">
+            <small><?php the_sub_field('step'); ?></small>
+            <b><?php the_sub_field('text'); ?></b>
+          </div> 
+          <?php endwhile; endif; ?>
 
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="get container wow animate__animated animate__fadeInUp">
+  <div class="get-wrap">
+    <b>Get a quote</b>
+    <p>Please provide us details for your move. Its free and takes only 30 seconds</p>
+    <div class="get-form">
+      <div class="input">
+        <input type="text" class="input-from" placeholder="Moving from">
+        <p>Moving from</p>
+      </div>
+      <div class="input">
+        <input type="text" class="input-to" placeholder="Moving to">
+        <p>Moving to</p>
+      </div>
+      <a href="<?php the_permalink(79); ?>" class="button">
+        Quote
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="about-us wow animate__animated animate__fadeInUp">
+  <div class="container">
+    <h2 class="title  title-reverse">
+      <?php the_field('about_title', 'options'); ?>
+    </h2>
+    <div class="about-us-video ">
+      <img data-video="<?php the_field('about_youtube_link', 'options'); ?>" class="play" src="<?php the_field('youtube_video_placeholder_image', 'options'); ?>" alt="placholder">
+      <iframe width="100%" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="about-us-features ">
+
+      <?php if(have_rows('about_features', 'options')) : while(have_rows('about_features', 'options')) : the_row(); ?>
+      <div class="item">
+        <b><?php the_sub_field('number'); ?></b>
+        <p><?php the_sub_field('text'); ?></p>
+      </div>
+      <?php endwhile; endif; ?>
+
+    </div>
+  </div>
+</section>
+
+<section class="team wow animate__animated animate__fadeInUp">
+  <div class="container">
+    <h2 class="title  title-reverse">
+      <?php the_field('team_title', 'options'); ?>
+    </h2>
+    <p class="subtitle"><?php the_field('team_subtitle', 'options'); ?></p>
+    <div class="team-wrap swiper-nav">
+      <div class="arr arr-prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5303 5.46967C15.8232 5.76256 15.8232 6.23744 15.5303 6.53033L10.0607 12L15.5303 17.4697C15.8232 17.7626 15.8232 18.2374 15.5303 18.5303C15.2374 18.8232 14.7626 18.8232 14.4697 18.5303L8.46967 12.5303C8.17678 12.2374 8.17678 11.7626 8.46967 11.4697L14.4697 5.46967C14.7626 5.17678 15.2374 5.17678 15.5303 5.46967Z" fill="white"/>
+        </svg>
+      </div>
+      <div class="team-slider swiper ">
+        <div class="swiper-wrapper">
+          <?php if(have_rows('team', 'options')) : while(have_rows('team', 'options')) : the_row(); ?>
+          <div class="team-slider-item swiper-slide">
+            <div class="img">
+              <img src="<?php the_sub_field('photo'); ?>" alt="<?php the_sub_field('name'); ?>">
+            </div>
+            <b><?php the_sub_field('name'); ?></b>
+            <p><?php the_sub_field('position'); ?></p>
+          </div>
+          <?php endwhile; endif; ?>
+        </div>
+      </div>
+      <div class="arr arr-next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8.46967 5.46967C8.17678 5.76256 8.17678 6.23744 8.46967 6.53033L13.9393 12L8.46967 17.4697C8.17678 17.7626 8.17678 18.2374 8.46967 18.5303C8.76256 18.8232 9.23744 18.8232 9.53033 18.5303L15.5303 12.5303C15.8232 12.2374 15.8232 11.7626 15.5303 11.4697L9.53033 5.46967C9.23744 5.17678 8.76256 5.17678 8.46967 5.46967Z" fill="white"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hiring container wow animate__animated animate__fadeInUp">
+  <div class="hiring-wrap " style="background-image: url(<?php the_field('hiring_bg', 'options'); ?>);">
+    <div class="item">
+      <b><?php the_field('hiring_title', 'options'); ?></b>
+      <p><?php the_field('hiring_text', 'options'); ?></p>
+      <a class="button button-accent" href="<?php the_field('page_link', 'options'); ?>">Read more</a>
+      <img src="<?php the_field('hiring_bg_layout', 'options'); ?>" alt="man">
+    </div>
+  </div>
+</section>
+
+<section class="destination wow animate__animated animate__fadeInUp">
+  <div class="container">
+    <h2 class="title "><?php the_field('dest_title', 'options'); ?></h2>
+    <div class="destination-wrap ">
+    <?php if(have_rows('destinations', 'options')) : while(have_rows('destinations', 'options')) : the_row(); ?>
+    <ul>
+      <?php if(have_rows('columns')) : while(have_rows('columns')) : the_row(); ?>
+      <li>
+        <?php if (get_sub_field('link')) { ?>
+        <a href="<?php the_sub_field('link'); ?>"><?php the_sub_field('name'); ?></a>
+        <?php } else { ?>
+        <div><?php the_sub_field('name'); ?></div>
+        <?php } ?>
+      </li>
+      <?php endwhile; endif; ?>
+    </ul>
+    <?php endwhile; endif; ?>
+
+    </div>
+  </div>
+</section>
+
+<section class="question container wow animate__animated animate__fadeInUp">
+  <div class="question-wrap ">
+    <div class="left">
+      <b>Got a question?</b>
+      <p>We're here to help and answer any question you might have</p>
+    </div>
+    <div class="right">
+      <?php echo do_shortcode('[contact-form-7 id="4a616eb" title="Got a question"]'); ?>
+    </div>
+  </div>
+</section>
+
+<section class="seo wow animate__animated animate__fadeInUp">
+  <div class="container">
+    <h2 class="title "><?php the_field('seo_title', 'options'); ?></h2>
+    <div class="content ">
+      <?php the_field('seo_content', 'options'); ?>
+    </div>
+  </div>
+</section>
+
+<section class="blog wow animate__animated animate__fadeInUp">
+  <div class="container">
+    <h2 class="title title-reverse ">
+      Our blog
+    </h2>
+    <div class="blog-slider swiper ">
+      <div class="blog-wrap swiper-wrapper">
+        <?php 
+          $my_posts = get_posts('numberposts=4');
+          foreach ($my_posts as $post) :
+          setup_postdata($post);
+        ?>
+        <a href="<?php the_permalink(); ?>" class="blog-wrap-item swiper-slide">
+          <img src="<?php the_post_thumbnail_url() ?>" alt="post thumbnail">
+          <div class="date"><?php echo get_the_date('d.m.Y') ?></div>
+          <b><?php the_title(); ?></b>
+        </a>
+        <?php endforeach; wp_reset_postdata(); ?>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Microdata Local-->
+<div itemscope itemtype="http://schema.org/LocalBusiness">
+  <meta itemprop="name" content="Elate Moving | Professional Moving Services">
+	<!-- <meta itemprop="priceRange" content="от 60 000 ₽"> -->
+	<meta itemprop="description" content="Elate Moving is a professional moving and storage company with the most trustworthy, dedicated, expert and white glove NYC movers.">
+  <meta itemprop="telephone" content="<?php the_field('phone', 'options'); ?>">
+	<meta itemprop="email" content="<?php the_field('email', 'options'); ?>">
+  <link itemprop="url" href="<?php echo get_home_url(null); ?>">
+	<link itemprop="logo image" href="<?php echo get_template_directory_uri(); ?>/img/logo.svg">
+  <time itemprop="openingHours" datetime="Mo-Fr 09:00−18:00"></time>
+  <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+    <meta itemprop="addressCountry" content="US">
+    <meta itemprop="addressLocality" content="New York">
+    <meta itemprop="streetAddress" content="305 Broadway Floor 7 New York, NY 10007">
+  </div>
+</div>
+<!--Microdata organisation-->
+<div itemscope itemtype="http://schema.org/Organization">
+  <meta itemprop="name" content="Elate Moving | Professional Moving Services">
+	<!-- <meta itemprop="priceRange" content="от 60 000 ₽"> -->
+	<meta itemprop="description" content="Elate Moving is a professional moving and storage company with the most trustworthy, dedicated, expert and white glove NYC movers.">
+  <meta itemprop="telephone" content="<?php the_field('phone', 'options'); ?>">
+	<meta itemprop="email" content="<?php the_field('email', 'options'); ?>">
+  <link itemprop="url" href="<?php echo get_home_url(null); ?>">
+	<link itemprop="logo image" href="<?php echo get_template_directory_uri(); ?>/img/logo.svg">
+  <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+    <meta itemprop="addressCountry" content="US">
+    <meta itemprop="addressLocality" content="New York">
+    <meta itemprop="streetAddress" content="305 Broadway Floor 7 New York, NY 10007">
+  </div>
+</div>
 <?php get_footer(); ?>

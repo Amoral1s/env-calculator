@@ -1,7 +1,7 @@
 <?php 
 //новая длина размера цитаты start
 function wph_excerpt_length($length) {
-	return 20; 
+	return 74; 
 }
 add_filter('excerpt_length', 'wph_excerpt_length');
 
@@ -9,50 +9,6 @@ add_filter('excerpt_length', 'wph_excerpt_length');
 add_filter('excerpt_more', function($more) {
 	return '...';
 });
-
-//Регистрация нового типа поста
-/* add_action( 'init', 'register_post_types' );
-function register_post_types(){
-	register_post_type('info', array(
-		'label'  => null,
-		'labels' => array(
-			'name'               => 'Информация', // основное название для типа записи
-			'singular_name'      => 'Информация', // название для одной записи этого типа
-			'add_new'            => 'Добавить информацию', // для добавления новой записи
-			'add_new_item'       => 'Добавление информацию', // заголовка у вновь создаваемой записи в админ-панели.
-			'edit_item'          => 'Редактирование информацию', // для редактирования типа записи
-			'new_item'           => 'Новая информация', // текст новой записи
-			'view_item'          => 'Смотреть информацию', // для просмотра записи этого типа.
-			'search_items'       => 'Искать информацию', // для поиска по этим типам записи
-			'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
-			'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
-			'parent_item_colon'  => '', // для родителей (у древовидных типов)
-			'menu_name'          => 'Информация', // название меню
-		),
-		'description'         => '',
-		'public'              => true,
-		'publicly_queryable'  => true, // зависит от public
-		'exclude_from_search' => false, // зависит от public
-		'show_ui'             => true, // зависит от public
-		'show_in_menu'        => true, // показывать ли в меню адмнки
-		'show_in_admin_bar'   => true, // по умолчанию значение show_in_menu
-		'show_in_nav_menus'   => true, // зависит от public
-		'show_in_rest'        => true, // добавить в REST API. C WP 4.7
-		'rest_base'           => null, // $post_type. C WP 4.7
-		'menu_position'       => 4,
-		'menu_icon'           => 'dashicons-format-gallery', 
-		//'capability_type'   => 'post',
-		//'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
-		//'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
-		'hierarchical'        => false,
-		'supports'            => array('title','editor','author','thumbnail','excerpt','editor','trackbacks','comments'), // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
-		'taxonomies'          => array(),
-		'has_archive'         => false,
-		'rewrite'             => true,
-		'query_var'           => true,
-	)
- ); 
-} */
 
 add_filter( 'get_the_archive_title', 'artabr_remove_name_cat' );
 function artabr_remove_name_cat( $title ){
@@ -64,5 +20,60 @@ function artabr_remove_name_cat( $title ){
   return $title;
 }
 
+function quote() {
+  ob_start();
+  get_template_part('shortcodes/quote');
+  return ob_get_clean();
+}
+add_shortcode('quote', 'quote');
 
+function mini_banner() {
+  ob_start();
+  get_template_part('shortcodes/mini-banner');
+  return ob_get_clean();
+}
+add_shortcode('mini_banner', 'mini_banner');
 
+function big_banner() {
+  ob_start();
+  get_template_part('shortcodes/big-banner');
+  return ob_get_clean();
+}
+add_shortcode('big_banner', 'big_banner');
+
+/* Выводим кол-во просмотров поста */
+function getPostViews($postID){
+  $count_key = 'post_views_count';
+  $count = get_post_meta($postID, $count_key, true);
+  if($count == '') {
+      delete_post_meta($postID, $count_key);
+      add_post_meta($postID, $count_key, '0');
+      return "0";
+  }
+  return $count;
+}
+function setPostViews($postID) {
+  $count_key = 'post_views_count';
+  $count = get_post_meta($postID, $count_key, true);
+  if($count==''){
+      $count = 0;
+      delete_post_meta($postID, $count_key);
+      add_post_meta($postID, $count_key, '0');
+  }else{
+      $count++;
+      update_post_meta($postID, $count_key, $count);
+  }
+}
+
+// подключаем расчет чтения
+if ( ! function_exists( 'gp_read_time' ) ) {
+  function gp_read_time() {
+  $text = get_the_content( '' );
+  $words = str_word_count( strip_tags( $text ), 0, 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' );
+  if ( !empty( $words ) ) {
+  $time_in_minutes = ceil( $words / 200 );
+  return $time_in_minutes;
+  }
+  return false;
+  }
+  }

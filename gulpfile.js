@@ -6,21 +6,20 @@ let fs = require('fs');
 
 let path = {
 	build: {
-		html: './',
-		css: "./css/",
-		js: "./js/",
-		img: "./img/",
-		fonts: "./fonts/",
+		css: "css/",
+		js: "js/",
+		img: "img/",
+		fonts: "fonts/",
 	},
 	src: {
-		html: "./",
+		html: [source_folder + "/*.html", "!" + source_folder + "/_*.html"],
 		css: [source_folder + "/sass/*.scss", source_folder + "/sass/*.sass", "!" + source_folder + "/sass/_*.sass"],
 		js: source_folder + "/js/*.js",
 		img: source_folder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
 		fonts: source_folder + "/fonts/*.ttf",
 	},
 	watch: {
-		html: "./*.php",
+		html: source_folder + "/**/*.html",
 		css: source_folder + "/sass/**/*.sass",
 		js: source_folder + "/js/**/*.js",
 		img: source_folder + "/img/**/*.{jpg,png,svg,gif,ico,webp}"
@@ -40,6 +39,8 @@ let { src, dest } = require('gulp'),
 	rename = require("gulp-rename"),
 	uglify = require("gulp-uglify-es").default,
 	imagemin = require("gulp-imagemin"),
+	webp = import('imagemin-webp'),
+	webpCss = require("gulp-webpcss"),
 	ttf2woff = require('gulp-ttf2woff'),
 	ttf2woff2 = require('gulp-ttf2woff2'),
 	fonter = require('gulp-fonter'),
@@ -47,17 +48,10 @@ let { src, dest } = require('gulp'),
 
 function browserSync(params) {
 	browsersync.init({
-		proxy: "http://geo-calc.ru/",
+		proxy: "http://elatemoving-local.com/",
 		notify: false
 	});
 }
-function html() {
-	return src(path.src.html)
-		//.pipe(fileinclude())
-		.pipe(dest(path.build.html))
-		.pipe(browsersync.stream()) 
-}
-
 function css() {
 	return src(path.src.css)
 		.pipe(
@@ -72,8 +66,8 @@ function css() {
 				cascade: true
 			})
 		)
+		.pipe(webpCss())
 		.pipe(dest(path.build.css))
-		.pipe(browsersync.stream())
 		.pipe(clean_css())
 		.pipe(
 			rename({
@@ -81,7 +75,7 @@ function css() {
 			})
 		)
 		.pipe(dest(path.build.css))
-		
+		.pipe(browsersync.stream())
 }
 function js() {
 	return src(path.src.js)
@@ -149,7 +143,6 @@ function fontstyle() {
 }
 function cb() { }
 function watchFiles(params) {
-	gulp.watch([path.watch.html], html);
 	gulp.watch([path.watch.css], css);
 	gulp.watch([path.watch.js], js);
 	gulp.watch([path.watch.img], images);
@@ -158,7 +151,7 @@ function clean(params) {
 	return del(path.clean);
 }
 let fontsBuild = gulp.series(fonts_otf, fonts, fontstyle);
-let buildDev = gulp.series(gulp.parallel(fontsBuild, css, html, js, images));
+let buildDev = gulp.series(gulp.parallel(fontsBuild, css, js, images));
 let watch = gulp.series(buildDev, gulp.parallel(watchFiles, browserSync));
 
 exports.fonts = fontsBuild;
