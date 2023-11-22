@@ -39,18 +39,18 @@
       </div>
     </div>
   </section>
-  <section class="advantages wow animate__animated animate__fadeInUp">
+  <section class="advantages ">
     <div class="container">
       <div class="advantages-wrap ">
-        <h2 class="title wow animate__animated animate__fadeInUp title-reverse">
+        <h2 class="title wow animate__animated animate__fadeInUp title-reverse" data-wow-duration="3s" data-wow-delay="1s">
           <?php the_field('advantages_title', 'options'); ?>
         </h2>
-        <div class="advantages-wrap-img ">
+        <div class="advantages-wrap-img wow animate__animated animate__fadeInUpBig" data-wow-duration="3s" data-wow-delay="0s">
           <img src="<?php the_field('advantages_image', 'options'); ?>" alt="truck">
         </div>
         <div class="advantages-wrap-cards ">
-          <?php if(have_rows('advantages_cards', 'options')) : while(have_rows('advantages_cards', 'options')) : the_row(); ?>
-          <div class="item">
+          <?php $adv_i = 3; if(have_rows('advantages_cards', 'options')) : while(have_rows('advantages_cards', 'options')) : the_row(); ?>
+          <div class="item  wow animate__animated animate__fadeInUpBig" data-wow-delay="0.<?php echo $adv_i; $adv_i += 2; ?>s">
             <div class="icon">
               <img src="<?php the_sub_field('icon'); ?>" alt="icon">
             </div>
@@ -59,10 +59,10 @@
           <?php endwhile; endif; ?>
         </div>
         <div class="advantages-wrap-text">
-          <div class="item left">
+          <div class="item left wow animate__animated animate__fadeInLeftBig">
             <?php the_field('advantage_text', 'options'); ?>
           </div>
-          <div class="item right" style="background-image: url(<?php the_field('advantage_right_image', 'options'); ?>);">
+          <div class="item right  wow animate__animated animate__fadeInRightBig" style="background-image: url(<?php the_field('advantage_right_image', 'options'); ?>);">
             <b><?php the_field('advantage_image_title', 'options'); ?></b>
           </div>
         </div>
@@ -127,7 +127,7 @@
   </div>
 </section>
 
-<section class="how wow animate__animated animate__fadeInUp">
+<section class="how wow animate__animated animate__fadeInRightBig">
   <div class="container">
     <h2 class="title  title-sub"><?php the_field('how_title', 'options'); ?></h2>
     <p class="subtitle"><?php the_field('how_subtitle', 'options'); ?></p>
@@ -160,8 +160,8 @@
   </div>
 </section>
 
-<section class="get container wow animate__animated animate__fadeInUp">
-  <div class="get-wrap">
+<section class="get container ">
+  <div class="get-wrap wow animate__animated animate__fadeInLeftBig">
     <b>Get a quote</b>
     <p>Please provide us details for your move. Its free and takes only 30 seconds</p>
     <div class="get-form">
@@ -180,19 +180,19 @@
   </div>
 </section>
 
-<section class="about-us wow animate__animated animate__fadeInUp">
+<section class="about-us">
   <div class="container">
-    <h2 class="title  title-reverse">
+    <h2 class="title  wow animate__animated animate__fadeInUp title-reverse" data-wow-duration="3s" data-wow-delay="1s">
       <?php the_field('about_title', 'options'); ?>
     </h2>
-    <div class="about-us-video ">
+    <div class="about-us-video  wow animate__animated animate__fadeInUpBig">
       <img data-video="<?php the_field('about_youtube_link', 'options'); ?>" class="play" src="<?php the_field('youtube_video_placeholder_image', 'options'); ?>" alt="placholder">
       <iframe width="100%" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
     <div class="about-us-features ">
 
-      <?php if(have_rows('about_features', 'options')) : while(have_rows('about_features', 'options')) : the_row(); ?>
-      <div class="item">
+      <?php $feat_i = 3; if(have_rows('about_features', 'options')) : while(have_rows('about_features', 'options')) : the_row(); ?>
+      <div class="item wow animate__animated animate__fadeInUpBig" data-wow-delay="0.<?php echo $feat_i; $feat_i += 2; ?>s">
         <b><?php the_sub_field('number'); ?></b>
         <p><?php the_sub_field('text'); ?></p>
       </div>
@@ -202,19 +202,19 @@
   </div>
 </section>
 
-<section class="team wow animate__animated animate__fadeInUp">
+<section class="team">
   <div class="container">
-    <h2 class="title  title-reverse">
+    <h2 class="title  title-reverse wow animate__animated animate__fadeInUp" data-wow-duration="3s" data-wow-delay="1s">
       <?php the_field('team_title', 'options'); ?>
     </h2>
-    <p class="subtitle"><?php the_field('team_subtitle', 'options'); ?></p>
+    <p class="subtitle wow animate__animated animate__fadeInUp" data-wow-duration="3s" data-wow-delay="0.5s"><?php the_field('team_subtitle', 'options'); ?></p>
     <div class="team-wrap swiper-nav">
       <div class="arr arr-prev">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5303 5.46967C15.8232 5.76256 15.8232 6.23744 15.5303 6.53033L10.0607 12L15.5303 17.4697C15.8232 17.7626 15.8232 18.2374 15.5303 18.5303C15.2374 18.8232 14.7626 18.8232 14.4697 18.5303L8.46967 12.5303C8.17678 12.2374 8.17678 11.7626 8.46967 11.4697L14.4697 5.46967C14.7626 5.17678 15.2374 5.17678 15.5303 5.46967Z" fill="white"/>
         </svg>
       </div>
-      <div class="team-slider swiper ">
+      <div class="team-slider swiper wow animate__animated animate__fadeInUp" data-wow-duration="3s" data-wow-delay="0s">
         <div class="swiper-wrapper">
           <?php if(have_rows('team', 'options')) : while(have_rows('team', 'options')) : the_row(); ?>
           <div class="team-slider-item swiper-slide">
@@ -236,8 +236,8 @@
   </div>
 </section>
 
-<section class="hiring container wow animate__animated animate__fadeInUp">
-  <div class="hiring-wrap " style="background-image: url(<?php the_field('hiring_bg', 'options'); ?>);">
+<section class="hiring container ">
+  <div class="hiring-wrap wow animate__animated animate__fadeInUp" style="background-image: url(<?php the_field('hiring_bg', 'options'); ?>);">
     <div class="item">
       <b><?php the_field('hiring_title', 'options'); ?></b>
       <p><?php the_field('hiring_text', 'options'); ?></p>
@@ -247,7 +247,7 @@
   </div>
 </section>
 
-<section class="destination wow animate__animated animate__fadeInUp">
+<section class="destination wow animate__animated animate__fadeInUpBig">
   <div class="container">
     <h2 class="title "><?php the_field('dest_title', 'options'); ?></h2>
     <div class="destination-wrap ">
@@ -269,8 +269,8 @@
   </div>
 </section>
 
-<section class="question container wow animate__animated animate__fadeInUp">
-  <div class="question-wrap ">
+<section class="question container">
+  <div class="question-wrap  wow animate__animated animate__fadeInUpBig">
     <div class="left">
       <b>Got a question?</b>
       <p>We're here to help and answer any question you might have</p>
@@ -281,10 +281,10 @@
   </div>
 </section>
 
-<section class="seo wow animate__animated animate__fadeInUp">
+<section class="seo ">
   <div class="container">
-    <h2 class="title "><?php the_field('seo_title', 'options'); ?></h2>
-    <div class="content ">
+    <h2 class="title wow animate__animated animate__fadeInUp "><?php the_field('seo_title', 'options'); ?></h2>
+    <div class="content wow animate__animated animate__fadeInUp">
       <?php the_field('seo_content', 'options'); ?>
     </div>
   </div>
@@ -292,10 +292,10 @@
 
 <section class="blog wow animate__animated animate__fadeInUp">
   <div class="container">
-    <h2 class="title title-reverse ">
+    <h2 class="title title-reverse wow animate__animated animate__fadeInUp" data-wow-duration="3s" data-wow-delay="1s">
       Our blog
     </h2>
-    <div class="blog-slider swiper ">
+    <div class="blog-slider swiper wow animate__animated animate__fadeInUp" data-wow-duration="3s" data-wow-delay="0s">
       <div class="blog-wrap swiper-wrapper">
         <?php 
           $my_posts = get_posts('numberposts=4');

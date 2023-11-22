@@ -76,7 +76,7 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name): ge
 		</div>
 	</div>
 
-	<div class="single-nav">
+	<div class="single-nav" style="display: none">
 		<b>Contents</b>
 		<div class="single-nav-wrap">
 
@@ -133,7 +133,7 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name): ge
 <?php endwhile; ?>
 
 
-<main class="page">
+<!-- <main class="page">
 	<div itemscope itemtype="http://schema.org/Article" class="single container">
 		<h1 itemprop="name headline" class="title">
 			<?php the_title() ?>
@@ -147,6 +147,6 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name): ge
 			<?php the_content() ?>
 		</div>
 	</div>
-</main>
+</main> -->
 
 <?php get_footer();

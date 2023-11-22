@@ -66,12 +66,12 @@ get_header();
 
 </div>
 
-<section class="four-steps wow animate__animated animate__fadeInUp">
+<section class="four-steps">
   <div class="container">
-    <h2 class="title title-reverse">
+    <h2 class="title title-reverse wow animate__animated animate__fadeInUp" data-wow-duration="3s" data-wow-delay="1s">
       <?php the_field('step_title'); ?>
     </h2>
-    <div class="four-steps-wrap">
+    <div class="four-steps-wrap wow animate__animated animate__fadeInUp" data-wow-duration="3s" data-wow-delay="0s">
       <?php $num = 1; if (have_rows('steps')) : while(have_rows('steps')) : the_row(); ?>
       <div class="item">
         <div class="num"><?php echo $num; $num++; ?></div>
@@ -272,6 +272,30 @@ get_header();
     </div>
   </div>
 </section>
+
+<?php if (get_field('dest_title')) { ?>
+<section class="destination wow animate__animated animate__fadeInUp">
+  <div class="container">
+    <h2 class="title "><?php the_field('dest_title'); ?></h2>
+    <div class="destination-wrap ">
+    <?php if(have_rows('destinations')) : while(have_rows('destinations')) : the_row(); ?>
+    <ul>
+      <?php if(have_rows('columns')) : while(have_rows('columns')) : the_row(); ?>
+      <li>
+        <?php if (get_sub_field('link')) { ?>
+        <a href="<?php the_sub_field('link'); ?>"><?php the_sub_field('name'); ?></a>
+        <?php } else { ?>
+        <div><?php the_sub_field('name'); ?></div>
+        <?php } ?>
+      </li>
+      <?php endwhile; endif; ?>
+    </ul>
+    <?php endwhile; endif; ?>
+
+    </div>
+  </div>
+</section>
+<?php } ?>
 
 <?php if (get_field('seo_title')) { ?>
 <section class="seo wow animate__animated animate__fadeInUp">

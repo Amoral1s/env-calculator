@@ -169,6 +169,9 @@
   <p>Stay up to date with our updates</p>
 </div>
 
+
+
+
 <?php wp_footer(); ?>
 
 

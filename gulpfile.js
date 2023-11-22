@@ -96,14 +96,7 @@ function js() {
 function images() {
 	return src(path.src.img)
 		.pipe(newer(path.build.img))
-		.pipe(
-			imagemin({
-				progressive: true,
-				svgoPlugins: [{ removeViewBox: false }],
-				interlaced: true,
-				optimizationLevel: 0 // 0 to 7
-			})
-		)
+		
 		.pipe(dest(path.build.img))
 }
 function fonts() {

@@ -6,13 +6,22 @@
 get_header();
 ?>
 
-<section class="quote-page page-top">
+<section class="quote-page main-quote page-top">
   <div class="container">
     <?php if ( function_exists('yoast_breadcrumb') ) { yoast_breadcrumb('<div class="breadcrumbs">', '</div>'); } ?>
     <h1 class="page-title title-sub"><?php the_title(); ?></h1>
     <p class="subtitle"><?php the_field('subtitle'); ?></p>
     <?php the_content(); ?>
     <div class="link-zoom" style="display: none"><?php the_permalink(1809); ?></div>
+  </div>
+</section>
+
+<section class="quote-page zoom-section page-top" style="display: none">
+  <div class="container">
+    <b class="page-title">Set up Virtual Estimate via FaceTime or Zoom
+    </b>
+    <p class="subtitle">If you have large scale or complicated moving project you can set up Virtual estimate with our customer representative and you will receive precise quote for your upcoming move</p>
+    <?php echo do_shortcode('[contact-form-7 id="9aaf6d5" title="Set up Virtual Estimate via FaceTime or Zoom"]'); ?>
   </div>
 </section>
 

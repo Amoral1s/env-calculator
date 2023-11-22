@@ -24,7 +24,7 @@ get_header();
               <input type="text" class="input-to" placeholder="Moving to">
               <p>Moving to</p>
             </div>
-            <a href="<?php the_permalink(79); ?>" class="button button-accent">
+            <a href="<?php the_permalink(79); ?>" data-type="Residential" class="button button-accent">
               Quote
             </a>
           </div>
@@ -67,12 +67,12 @@ get_header();
 </div>
 
 
-<section class="four-steps wow animate__animated animate__fadeInUp">
+<section class="four-steps">
   <div class="container">
-    <h2 class="title title-reverse">
+    <h2 class="title title-reverse wow animate__animated animate__fadeInUp" data-wow-duration="3s" data-wow-delay="1s">
       <?php the_field('step_title'); ?>
     </h2>
-    <div class="four-steps-wrap">
+    <div class="four-steps-wrap wow animate__animated animate__fadeInUp" data-wow-duration="3s" data-wow-delay="0s">
       <?php $num = 1; if (have_rows('steps')) : while(have_rows('steps')) : the_row(); ?>
       <div class="item">
         <div class="num"><?php echo $num; $num++; ?></div>

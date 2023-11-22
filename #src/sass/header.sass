@@ -1,6 +1,13 @@
 @import "./reset/_vars"
 @import "./reset/_reset"
 
+@keyframes header-pc
+  0% 
+    top: -100%
+  100%
+    top: 0
+  
+
 .header
   padding-top: 40px
   padding-bottom: 40px
@@ -10,6 +17,17 @@
   right: 0
   width: 100%
   top: 0
+  &.active-pc
+    position: fixed
+    top: -100%
+    background-color: $bg
+    padding-top: 10px
+    padding-bottom: 10px
+    z-index: 100
+    animation-name: header-pc
+    animation-delay: 1s
+    animation-duration: 1s
+    animation-fill-mode: forwards
   .burger
     display: none
   &-wrap
@@ -19,6 +37,7 @@
   &-logo
     display: block
     margin-left: 0
+    max-width: 161px
     img
       object-fit: contain
       width: 100%
@@ -29,6 +48,8 @@
       a
         transition: .2s
         color: #fff
+        font-size: 18px
+        font-weight: 400
         &:hover
           transition: .2s
           color: $main
@@ -42,7 +63,7 @@
         padding-bottom: 25px
         padding-top: 25px
         &>a
-          padding-right: 34px
+          padding-right: 30px
           position: relative
           &:hover
             &::after
@@ -55,13 +76,13 @@
             width: 24px
             right: 0px
             top: 50%
-            transform: translateY(-50%)
+            transform: translateY(-48%)
             background-repeat: no-repeat
             background-size: contain
             background-image: url(../img/icons/menu_arr.svg)
             transition: .2s
       li
-        padding: 0 15px
+        padding: 0 10px
       ul.menu_sublist
         display: none
         position: absolute
@@ -101,6 +122,7 @@
       background-color: rgba(255, 255, 255, 0.10)
       transition: .2s
       margin-left: 10px
+      min-width: 44px
       &:hover
         transition: .2s
         background-color: $accent
@@ -119,14 +141,15 @@
       font-size: 18px
       font-weight: 700
     a
+      font-size: 14px
       &:hover
         color: $accent
 
 .bg-section
   background-repeat: no-repeat
-  background-size: cover
-  background-image: url(../img/offer_bg.svg)
-  background-position: right center
+  background-size: 2800px
+  background-image: url(../img/offer_bg.png)
+  background-position: 100px -420px
   &.bg-section-top
     background-position: 140px 0px
     background-size: contain
@@ -169,7 +192,7 @@
       flex-wrap: wrap
       justify-content: flex-start
       align-items: stretch
-      margin-top: -40px
+      margin-top: -80px
       &-item
         width: calc(25% - 20px)
         margin-right: 20px
@@ -218,15 +241,31 @@
   padding-top: 150px
 
 @media (min-width: 992px ) and (max-width: 1245px)
+  .header .social .search-toggle, .header .social a
+    min-width: 38px
+    height: 38px
+    display: flex
+    align-items: center
+    justify-content: center
+    svg
+      width: 34px
+      height: 34px
   .header
     padding: 25px
     padding-bottom: 25px
+    .button
+      width: 80px
+      height: 38px
     &-logo
-      max-width: 130px
+      max-width: 110px
     &-menu
+      ul
+        li
+          a
+            font-size: 14px
       &>ul
         li
-          padding: 0 7px
+          padding: 0 5px
           a
             font-size: 14px
     .email
@@ -234,8 +273,12 @@
     .social
       margin-left: 0
     .callback
+      .phone
+        font-size: 18px
       a
         margin-left: 10px
+        font-size: 16px
+        
   .header-menu>ul li.menu-item-has-children>a
     padding-right: 24px
   .offer
@@ -244,7 +287,7 @@
         margin-top: 0
       &-right
         width: 450px
-        
+        bottom: -30px
       &-left
         width: calc(100% - 450px - 20px)
         h1
@@ -432,7 +475,7 @@
       &-right
         width: 100%
         order: -1
-        margin-bottom: -140px
+        margin-bottom: -160px
   section
     margin-bottom: 40px
 
@@ -475,8 +518,8 @@
             margin: 0 10px 0px 10px
             max-width: calc(100% - 20px)
   .bg-section
-    background-size: 550px
-    background-position: top right
+    background-size: 1400px
+    background-position: -180px -220px
   .offer-wrap-cards
     &-item
       width: calc(50% - 5px)
@@ -492,14 +535,103 @@
       p
         font-size: 12px
 
+@media (min-width: 2000px)
+  .bg-section 
+    background-size: 2200px
+    background-position: 600px -140px
+
+@media (max-width: 992px)
+  .page-top
+    padding-top: 110px
+  .header
+    .close
+      display: flex
+      align-items: center
+    .burg-wrap
+      display: flex!important
+      justify-content: flex-end
+      align-items: center
+      width: 100px  
+    .phone-toggle
+      display: flex!important
+      margin-right: 15px
+    .mob-callback
+      display: flex!important
+      width: 100px
+      .button
+        margin: 0
+        width: 74px
+        height: 32px
+        font-size: 14px
+        border-radius: 8px
+
+@media (max-width: 578px)
+  .page-top
+    padding-top: 110px
+.phone-toggle
+  position: relative
+  .toggle
+    display: flex
+    align-items: center
+  .phone-mini
+    position: absolute
+    display: none
+    width: 270px
+    border-radius: 24px
+    background: rgba(255, 255, 255, 0.10)
+    backdrop-filter: blur(60px)
+    padding: 24px
+    top: 45px
+    right: -10px
+    z-index: 300
+    .social
+      display: block
+      margin: 0
+      a
+        margin: 0
+        height: auto
+        width: auto
+        padding: 0
+        background: transparent
+        margin-bottom: 10px
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        &:last-child
+          margin-bottom: 0
+        .icon
+          display: flex
+          margin-right: 8px
+        p
+          font-size: 14px
+          font-weight: 400
+          margin: 0
+    .close-mini
+      position: absolute
+      top: 20px
+      right: 20px
+    .phone
+      font-weight: 700
+      font-size: 18px
+      display: flex
+      margin-bottom: 8px
+      text-align: start
+
+      svg
+        display: block
+        margin-right: 8px
+    .email
+      font-size: 16px
+      width: 100%
+      text-align: start
+      display: block
+      color: #FE7300
+      padding-bottom: 20px
+      margin-bottom: 20px
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07)
 
 
 
-
-
-
-
-  
 
 
 

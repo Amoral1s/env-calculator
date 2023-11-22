@@ -21,7 +21,7 @@ get_header();
         <h1 class="page-title title-sub"><?php the_title(); ?></h1>
         <p class="subtitle"><?php the_field('subtitle'); ?></p>
         <div class="btns">
-          <a href="<?php the_permalink(79); ?>" class="button button-accent">Qoute</a>
+          <a href="<?php the_permalink(79); ?>" class="button button-accent">Quote</a>
           <a href="<?php the_permalink(203); ?>" class="button">Contact us</a>
         </div>
         <div class="service-offer-features">

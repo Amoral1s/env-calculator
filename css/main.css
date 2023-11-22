@@ -2007,23 +2007,10 @@
   width: 750px;
 }
 
-.about-us {
-  margin-bottom: 60px;
-}
-
-.about-us .title {
-  margin-bottom: 30px;
-}
-
-.about-us .content p,
-.about-us .content li {
-  color: #fff;
-}
-
 .bg-section-about {
   background-repeat: no-repeat;
   background-size: 100%;
-  background-image: url(../img/afvant-bg.svg);
+  background-image: url(../img/afvant-bg.png);
   background-position: center center;
   position: relative;
   z-index: 1;
@@ -2067,7 +2054,7 @@
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(../img/diff-bg.svg);
+  background-image: url(../img/diff-bg.png);
   right: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -2145,7 +2132,7 @@
 .history::after {
   position: absolute;
   content: "";
-  background-image: url(../img/history-bg.svg);
+  background-image: url(../img/history-bg.png);
   background-repeat: no-repeat;
   background-size: cover;
   aspect-ratio: 1440/1719;
@@ -3557,6 +3544,60 @@ div.asl_r * {
   margin-bottom: 30px;
 }
 
+.quote-tabs {
+  border-radius: 12px;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 40px;
+}
+
+.quote-tabs .item {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 12px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 500;
+  font-size: 18px;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+  height: 55px;
+  transition: 0.2s;
+}
+
+.quote-tabs .item:hover {
+  color: #ED6400;
+}
+
+.quote-tabs .item.active {
+  color: #fff;
+  background-color: #ED6400;
+  cursor: text;
+}
+
+.quote-tabs .item.active:hover {
+  color: #fff;
+}
+
 .quote-page-form {
   position: relative;
 }
@@ -3657,18 +3698,27 @@ div.asl_r * {
           align-items: center;
   margin-bottom: 40px;
   width: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.quote-page-form .row .wpcf7-form-control-wrap {
+  width: 100%;
 }
 
 .quote-page-form .row .full {
   width: 100%;
+  margin-bottom: 15px;
 }
 
 .quote-page-form .row .half {
   width: calc(50% - 8px);
+  margin-bottom: 15px;
 }
 
 .quote-page-form .row .third {
   width: calc(33.3% - 10.6666666667px);
+  margin-bottom: 15px;
 }
 
 .quote-page-form .input {
@@ -3752,6 +3802,11 @@ div.asl_r * {
   padding-top: 22px;
 }
 
+.quote-page-form .select select option {
+  color: #fff !important;
+  background-color: #19242B !important;
+}
+
 .quote-page-form .select select:placeholder {
   color: #19242B;
   font-size: 18px;
@@ -3802,7 +3857,7 @@ div.asl_r * {
   display: block;
   background-color: rgba(255, 255, 255, 0.05);
   padding-left: 15px;
-  padding-top: 22px;
+  padding-top: 30px;
 }
 
 .quote-page-form .date input::-webkit-calendar-picker-indicator {
@@ -3844,7 +3899,7 @@ div.asl_r * {
   padding: 20px;
   border-radius: 15px;
   border: 1px dashed rgba(255, 255, 255, 0.5);
-  margin-top: 40px;
+  margin-top: 0px;
   margin-bottom: 40px;
   cursor: pointer;
   -webkit-transition: 0.2s;
@@ -4440,8 +4495,9 @@ div.asl_r * {
 }
 
 .bg-section.land-section-bg {
-  background-image: url(../img/land-bg.svg);
+  background-image: url(../img/land-bg.png);
   background-size: cover;
+  background-position: -250px -450px;
 }
 
 .four-steps-wrap {
@@ -4597,7 +4653,7 @@ div.asl_r * {
   position: absolute;
   color: #FF3D60;
   font-size: 12px;
-  top: calc(100% + 6px);
+  top: calc(100% + 1px);
 }
 
 .author-page-view {
@@ -4916,6 +4972,64 @@ div.asl_r * {
 .input ul li {
   font-size: 14px;
   margin-bottom: 10px;
+}
+
+.services-tabs .tabs-wrapper .wrap .item {
+  border-color: transparent;
+}
+
+.wpcf7-not-valid-tip {
+  white-space: nowrap;
+}
+
+.ui-widget-header {
+  background: #19242B;
+  font-family: "Onest", sans-serif;
+}
+
+.ui-datepicker-month {
+  font-family: "Onest", sans-serif;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-button,
+html .ui-button.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active {
+  background: #19242B;
+}
+
+.ui-datepicker-current-day .ui-button,
+.ui-datepicker-current-day .ui-state-default,
+.ui-datepicker-current-day .ui-widget-content .ui-state-default,
+.ui-datepicker-current-day .ui-widget-header .ui-state-default,
+.ui-datepicker-current-day html .ui-button.ui-state-disabled:active,
+.ui-datepicker-current-day html .ui-button.ui-state-disabled:hover {
+  background: #FE7300;
+  color: #fff;
+}
+
+.ui-widget-content {
+  background: #19242B;
+}
+
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight {
+  color: #FE7300;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus,
+.ui-button:hover,
+.ui-button:focus {
+  background: #FE7300;
+  color: #fff;
 }
 
 .single .comments #wpdcom .wpd-comment-header .wpd-comment-share,
@@ -7036,6 +7150,11 @@ div.asl_r.vertical {
     margin-right: 0;
   }
 
+  .bg-section.land-section-bg {
+    background-position: -230px -260px;
+    background-size: 1900px;
+  }
+
   .land-offer {
     position: relative;
   }
@@ -8006,6 +8125,15 @@ div.asl_r.vertical {
     width: 100%;
   }
 
+  .quote-tabs {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+
+  .quote-tabs .item {
+    width: 100%;
+  }
+
   .content .wp-block-group__inner-container .wp-block-image {
     margin-bottom: 30px;
   }
@@ -8572,6 +8700,19 @@ div.asl_r.vertical {
     width: 100%;
   }
 
+  .about-us {
+    margin-bottom: 60px;
+  }
+
+  .about-us .title {
+    margin-bottom: 30px;
+  }
+
+  .about-us .content p,
+  .about-us .content li {
+    color: #fff;
+  }
+
   .mission-wrap .advantages-wrap-text .item.right h2,
   .mission-wrap .advantages-wrap-text .item.right h3,
   .mission-wrap .advantages-wrap-text .item.right h4,
@@ -8915,8 +9056,8 @@ div.asl_r.vertical {
   }
 
   .bg-section.land-section-bg {
-    background-image: url(../img/land-bg.svg);
-    background-size: 600px;
+    background-size: 1200px;
+    background-position: top center;
   }
 
   .four-steps .title {
@@ -9193,3 +9334,11 @@ div.asl_r.vertical {
     right: -40px;
   }
 }
+
+.webp .bg-section-about { background-image: url(../img/afvant-bg.webp); }
+
+.webp .diff::after { background-image: url(../img/diff-bg.webp); }
+
+.webp .history::after { background-image: url(../img/history-bg.webp); }
+
+.webp .bg-section.land-section-bg { background-image: url(../img/land-bg.webp); }

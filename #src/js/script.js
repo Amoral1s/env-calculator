@@ -120,49 +120,6 @@ if (links) {
 } */
 
 
- 
-		
-  $(".wpcf7").on('wpcf7mailsent', function(event){
-
-		if (event.detail.contactFormId == '426') {
-			$('#thx-sub').fadeIn(200);
-			$('.popup').addClass('popup-thx');
-			$('#thx-sub').removeClass('popup-thx');
-			$('.overlay').fadeIn(300);
-		} else if (event.detail.contactFormId == '445') {
-			$('#thx').fadeIn(200);
-			$('.popup').addClass('popup-thx');
-			$('#thx').removeClass('popup-thx');
-			$('.overlay').fadeIn(300);
-
-			const zoomLink = document.querySelector('.link-zoom');
-			const name = document.querySelector('input[name="y-name"]');
-			const email = document.querySelector('input[name="y-email"]');
-			const phone = document.querySelector('input[name="y-phone"]');
-			localStorage.setItem('name', name.value);
-			localStorage.setItem('email', email.value);
-			localStorage.setItem('phone', phone.value);
-			
-			console.log(zoomLink);
-
-			setTimeout(function(){
-				window.location.href = zoomLink.textContent.trim();
-    	}, 1500);
-		} else {
-			$('#thx').fadeIn(200);
-			$('.popup').addClass('popup-thx');
-			$('#thx').removeClass('popup-thx');
-			$('.overlay').fadeIn(300);
-		}
-   
-    
-  });
-  $(".wpcf7").on('wpcf7invalid', function(event){
-    alert('Fill in all fields correctly and submit the form again!');
-  });
-  $(".wpcf7").on('wpcf7mailfailed', function(event){
-    alert('Error sending! Try submitting your application later!');
-  });
 	
 	document.addEventListener('input', (event) => {
 		if (event.target.value != '') {
@@ -188,9 +145,14 @@ if (links) {
 		});
 		$('.burger').on('click', function() {
 			$('.mobile-menu').slideDown(200);
+			$('.phone-toggle .phone-mini').slideUp(200);
 		});
 		$('.mobile-menu .close').on('click', function() {
 			$('.mobile-menu').slideUp(200);
+			$('.phone-toggle .phone-mini').slideUp(200);
+		});
+		$('.close-mini').on('click', function() {
+			$('.phone-toggle .phone-mini').slideUp(200);
 		});
 
 		$('li.menu-item-has-children > a').click(function(e) {
@@ -198,7 +160,20 @@ if (links) {
 			$(this).next().next('ul').slideToggle(200);
 			$(this).toggleClass('active');
 		});
+
+		$('.phone-toggle .toggle').on('click', function() {
+			$(this).next().slideDown(200);
+		});
+
 	} else {
+		$(window).scroll(function() { 
+			if ($(window).scrollTop() > 300) {
+				$('.header').addClass('active-pc');
+			} else {
+				$('.header').removeClass('active-pc');
+			}
+		});
+
 		$('li.menu-item-has-children').hover(function() {
 			$(this).children('ul').slideToggle(200);
 		});
@@ -418,45 +393,7 @@ if (links) {
 		return false;
 	});
 
-	const getForm = document.querySelectorAll('.get-form');
-	if (getForm.length > 0) {
-		getForm.forEach((form, formIndex) => {
-			const button = form.querySelector('a');
-			const inputFrom = form.querySelector('.input-from');
-			const inputTo = form.querySelector('.input-to');
-
-			button.addEventListener('click', (event) => {
-				event.preventDefault();
-				localStorage.setItem("From", inputFrom.value);
-				localStorage.setItem("To", inputTo.value);
-				window.location = button.href;
-			/* 	if (inputFrom.value && inputTo.value) {
-					localStorage.setItem("From", inputFrom.value);
-					localStorage.setItem("To", inputTo.value);
-					window.location = button.href;
-				} else {
-					alert('Enter the moving location and destination');
-				} */
-			})
-		});
-	}
-	const quotePage = document.querySelector('.quote-page');
-
-	if (quotePage) {
-		const inputFrom = document.querySelector('input.got-from');
-		if (inputFrom) {
-			const inputTo = document.querySelector('input.got-to');
-
-			setTimeout(() => {
-				inputFrom.value = localStorage.getItem('From');
-				inputTo.value = localStorage.getItem('To');
-			}, 1000);
-	
-			inputFrom.parentElement.classList.add('listen');
-			inputTo.parentElement.classList.add('listen');	
-		}
-		
-	} 
+ 
 
 	const fileInput = document.querySelector('.wpcf7-file');
 
@@ -523,51 +460,34 @@ if (links) {
 		}
 	});
 	
-	const phonesInputs = document.querySelectorAll('.wpcf7-validates-as-tel');
-
-	if (phonesInputs.length > 0) {
-		phonesInputs.forEach(phone => {
-			phone.addEventListener('input', () => {
-				phone.value = phone.value.replace(/[^0-9\+\-\)\(]/g, '');
-			});
-		})
+	function initialize(elem) {
+			var input = elem;
+			var autocomplete = new google.maps.places.Autocomplete(input);
 	}
 
-	const inputFromMap = document.querySelector('.input-from');
-	const inputToMap = document.querySelector('.input-to');
+	const inputFromMap = document.querySelectorAll('.input-from');
+	const inputToMap = document.querySelectorAll('.input-to');
 
-	if (inputFromMap && inputToMap) {
-		google.maps.event.addDomListener(window, 'load', initialize);
-		google.maps.event.addDomListener(window, 'load', initializeTo);
+	if (inputFromMap.length > 0 && inputToMap.length > 0) {
+		inputFromMap.forEach(elem => {
+			google.maps.event.addDomListener(window, 'load', initialize(elem));
+		});
+		inputToMap.forEach(elem => {
+			google.maps.event.addDomListener(window, 'load', initialize(elem));
+		});
 	 
-		function initialize() {
-				var input = inputFromMap;
-				var autocomplete = new google.maps.places.Autocomplete(input);
-		}
-		function initializeTo() {
-				var input = inputToMap;
-				var autocomplete = new google.maps.places.Autocomplete(input);
-		}
 	}
+	const inputFromMapGOT = document.querySelectorAll('.got-from');
+	const inputToMapGOT = document.querySelectorAll('.got-to');
 
-	const inputFromMapGOT = document.querySelector('.got-from');
-	const inputToMapGOT = document.querySelector('.got-to');
-
-	if (inputFromMapGOT && inputToMapGOT) {
-		google.maps.event.addDomListener(window, 'load', initialize);
-		google.maps.event.addDomListener(window, 'load', initializeTo);
-	 
-		function initialize() {
-				var input = inputFromMapGOT;
-				var autocomplete = new google.maps.places.Autocomplete(input);
-		}
-		function initializeTo() {
-				var input = inputToMapGOT;
-				var autocomplete = new google.maps.places.Autocomplete(input);
-		}
+	if (inputFromMapGOT.length > 0 && inputToMapGOT.length > 0) {
+		inputFromMapGOT.forEach(elem => {
+			google.maps.event.addDomListener(window, 'load', initialize(elem));
+		});
+		inputToMapGOT.forEach(elem => {
+			google.maps.event.addDomListener(window, 'load', initialize(elem));
+		});
 	}
-
-	
 	
 	const vacancyBtns = document.querySelectorAll('.vacancy-wrap .item .button');
 
@@ -592,25 +512,153 @@ if (links) {
 		}, 3000);
 		
 	}
-
-	const formZoom = document.querySelector('#wpcf7-f1811-o1');
-	if (formZoom) {
-		setTimeout(() => {
-			if (localStorage.getItem('name')) {
-				const inputName = document.querySelector('input[name="y-name"]');
-				inputName.value = localStorage.getItem('name');
-			} 
-			if (localStorage.getItem('email')) {
-				const inputEmail = document.querySelector('input[name="y-email"]');
-				inputEmail.value = localStorage.getItem('email');
-			} 
-			if (localStorage.getItem('phone')) {
-				const inputPhone = document.querySelector('input[name="y-phone"]');
-				inputPhone.value = localStorage.getItem('phone');
-			} 
-		}, 3000);
+	const zoomFunc = () => {
+		if (localStorage.getItem('name')) {
+			const inputName = document.querySelector('.zoom-section input[name="Full_name"]');
+			inputName.value = localStorage.getItem('name');
+		} 
+		if (localStorage.getItem('email')) {
+			const inputEmail = document.querySelector('.zoom-section input[name="E_mail"]');
+			inputEmail.value = localStorage.getItem('email');
+		} 
+		if (localStorage.getItem('phone')) {
+			const inputPhone = document.querySelector('.zoom-section input[name="Phone_number"]');
+			inputPhone.value = localStorage.getItem('phone');
+		} 
+}
+ 
 		
+  $(".wpcf7").on('wpcf7mailsent', function(event){
+
+		if (event.detail.contactFormId == '426') {
+			$('#thx-sub').fadeIn(200);
+			$('.popup').addClass('popup-thx');
+			$('#thx-sub').removeClass('popup-thx');
+			$('.overlay').fadeIn(300);
+
+		} else if (event.detail.contactFormId == '445' || event.detail.contactFormId == '2019' || event.detail.contactFormId == '2020') {
+			
+			$('#thx').fadeIn(200);
+			$('.popup').addClass('popup-thx');
+			$('#thx').removeClass('popup-thx');
+			$('.overlay').fadeIn(300);
+
+			const name = event.target.querySelector('input[name="First_name"]');
+			const email = event.target.querySelector('input[name="E_mail"]');
+			const phone = event.target.querySelector('input[name="Phone_number"]');
+
+			localStorage.setItem('name', name.value);
+			localStorage.setItem('email', email.value);
+			localStorage.setItem('phone', phone.value);
+
+			setTimeout(function(){
+				$('.main-quote').fadeOut(200);
+				$('.zoom-section').fadeIn(200);
+				zoomFunc();
+    	}, 2500);
+		} else {
+			$('#thx').fadeIn(200);
+			$('.popup').addClass('popup-thx');
+			$('#thx').removeClass('popup-thx');
+			$('.overlay').fadeIn(300);
+		}
+   
+    
+  });
+  $(".wpcf7").on('wpcf7invalid', function(event){
+    alert('Fill in all fields correctly and submit the form again!');
+  });
+  $(".wpcf7").on('wpcf7mailfailed', function(event){
+    alert('Error sending! Try submitting your application later!');
+  });
+	const getForm = document.querySelectorAll('.get-form');
+	if (getForm.length > 0) {
+		getForm.forEach((form, formIndex) => {
+			const button = form.querySelector('a');
+			const inputFrom = form.querySelector('.input-from');
+			const inputTo = form.querySelector('.input-to');
+
+			button.addEventListener('click', (event) => {
+				event.preventDefault();
+				if (button.dataset.type) {
+					localStorage.setItem("Type", button.dataset.type);
+				}
+				localStorage.setItem("From", inputFrom.value);
+				localStorage.setItem("To", inputTo.value);
+				window.location = button.href;
+			})
+		});
 	}
+	const quotePage = document.querySelector('.quote-page');
+
+	if (quotePage) {
+			const startPageFunc = (elem, input) => {
+				const tabs = document.querySelectorAll('.quote-tabs .item');
+				setTimeout(() => {
+					elem.value = localStorage.getItem(input);
+					if (localStorage.getItem('Type')) {
+						if (tabs.length > 0) {
+							tabs.forEach(e => {
+								if (e.dataset.id == localStorage.getItem('Type')) {
+									e.click();
+									localStorage.removeItem('Type');
+								}
+							})
+						}
+					}
+				}, 1000);
+			}
+
+			const inputFrom = document.querySelectorAll('input.got-from');
+			const inputTo = document.querySelectorAll('input.got-to');
+
+			inputFrom.forEach(elem => {
+				elem.parentElement.classList.add('listen');
+				startPageFunc(elem, 'From');
+			})
+			inputTo.forEach(elem => {
+				elem.parentElement.classList.add('listen');
+				startPageFunc(elem, 'To');
+			})
+			
+	}
+
+	const qouteTabs = document.querySelector('.quote-tabs');
+
+	if (qouteTabs) {
+
+		qouteTabs.addEventListener('click', (event) => {
+			let target = event.target;
+			
+			const ResForm = document.querySelector('.q-residential');
+			const CommForm = document.querySelector('.q-commercial');
+			const ArtForm = document.querySelector('.q-art');
+			const allForms = document.querySelectorAll('.q-main');
+			const tabs = qouteTabs.querySelectorAll('.item')
+			tabs.forEach(e => e.classList.remove('active'))
+			allForms.forEach(e => e.style.display = 'none'); 
+
+			if (target.closest('.item').dataset.id == 'Residential') {
+				ResForm.style.display = 'block';
+				target.closest('.item').classList.add('active');
+			} else if (target.closest('.item').dataset.id == 'Commercial / Office') {
+				CommForm.style.display = 'block';
+				target.closest('.item').classList.add('active');
+			} else if (target.closest('.item').dataset.id == 'Fine Art') {
+				ArtForm.style.display = 'block';
+				target.closest('.item').classList.add('active');
+			}
+		});
+	}
+
+	const inputPhones = document.querySelectorAll('.wpcf7-tel');
+
+	if (inputPhones.length > 0) {
+		inputPhones.forEach(input => {
+			IMask(input, {mask: '+{1} (000) 000-0000'})
+		});
+	}
+
 	
 
 }); //end

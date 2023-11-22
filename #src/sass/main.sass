@@ -1413,19 +1413,18 @@
       .wrapper
         max-width: 100%
         width: 100%
-
-.about-us
-  margin-bottom: 60px
-  .title
-    margin-bottom: 30px
-  .content
-    p,li
-      color: #fff
+  .about-us
+    margin-bottom: 60px
+    .title
+      margin-bottom: 30px
+    .content
+      p,li
+        color: #fff
 
 .bg-section-about
   background-repeat: no-repeat
   background-size: 100%
-  background-image: url(../img/afvant-bg.svg)
+  background-image: url(../img/afvant-bg.png)
   background-position: center center
   position: relative
   z-index: 1
@@ -1458,7 +1457,7 @@
     width: 100%
     background-repeat: no-repeat
     background-size: cover
-    background-image: url(../img/diff-bg.svg)
+    background-image: url(../img/diff-bg.png)
     right: 0
     top: 50%
     transform: translateY(-50%)
@@ -1501,7 +1500,7 @@
   &::after
     position: absolute
     content: ''
-    background-image: url(../img/history-bg.svg)
+    background-image: url(../img/history-bg.png)
     background-repeat: no-repeat
     background-size: cover
     aspect-ratio: 1440 / 1719
@@ -2792,9 +2791,39 @@ div.asl_r *
       p
         font-size: 14px
         margin-bottom: 20px
-
+.quote-tabs
+  border-radius: 12px
+  padding: 5px
+  background-color: rgba(#fff, .1)
+  display: flex
+  justify-content: center
+  align-items: center
+  margin-bottom: 40px
+  .item
+    width: 50%
+    display: flex
+    align-items: center
+    justify-content: center
+    border-radius: 12px
+    background-color: transparent
+    color: rgba(#fff, .5)
+    font-size: 500
+    font-size: 18px
+    transition: .2s
+    cursor: pointer
+    height: 55px
+    transition: .2s
+    &:hover
+      color: $button_hover
+    &.active
+      color: #fff
+      background-color: $button_hover
+      cursor: text
+      &:hover
+        color: #fff
 .quote-page-form
   position: relative
+  
   .wpcf7-list-item
     margin-left: 0
   .wpcf7-spinner
@@ -2850,12 +2879,18 @@ div.asl_r *
     align-items: center
     margin-bottom: 40px
     width: 100%
+    flex-wrap: wrap
+    .wpcf7-form-control-wrap
+      width: 100% 
     .full
       width: 100%
+      margin-bottom: 15px
     .half
       width: calc(50% - 8px)
+      margin-bottom: 15px
     .third
       width: calc(33.3% - (32px / 3))
+      margin-bottom: 15px
   .input
     border-radius: 16px
     position: relative
@@ -2916,6 +2951,9 @@ div.asl_r *
       background-color: rgba(#fff, .05)
       padding-left: 15px
       padding-top: 22px
+      option
+        color: $text!important
+        background-color: $text_dark!important
       &:placeholder
         color: $text_dark
         font-size: 18px
@@ -2951,7 +2989,7 @@ div.asl_r *
       display: block
       background-color: rgba(#fff, .05)
       padding-left: 15px
-      padding-top: 22px
+      padding-top: 30px
       &::-webkit-calendar-picker-indicator
         height: 60px
         width: 120px
@@ -2976,7 +3014,7 @@ div.asl_r *
     padding: 20px
     border-radius: 15px
     border: 1px dashed rgba(#fff, .5)
-    margin-top: 40px
+    margin-top: 0px
     margin-bottom: 40px
     cursor: pointer
     transition: .2s
@@ -3464,8 +3502,9 @@ div.asl_r *
 
   
 .bg-section.land-section-bg
-  background-image: url(../img/land-bg.svg)
+  background-image: url(../img/land-bg.png)
   background-size: cover
+  background-position: -250px -450px
 
 .four-steps
   &-wrap
@@ -3529,6 +3568,9 @@ div.asl_r *
       width: 500px
 
 @media (max-width: 992px)
+  .bg-section.land-section-bg
+    background-position: -230px -260px
+    background-size: 1900px
   .land-offer 
     position: relative
     .offer-wrap
@@ -3642,8 +3684,8 @@ div.asl_r *
       font-size: 16px
       margin-bottom: 20px
   .bg-section.land-section-bg
-    background-image: url(../img/land-bg.svg)
-    background-size: 600px
+    background-size: 1200px
+    background-position: top center
   .four-steps
     .title
       margin-bottom: -10px
@@ -3841,7 +3883,7 @@ div.asl_r *
       position: absolute
       color: #FF3D60
       font-size: 12px
-      top: calc(100% + 6px)
+      top: calc(100% + 1px)
 
 
 .author-page
@@ -4093,24 +4135,42 @@ div.asl_r *
 
 
 
+@media (max-width: 767px)
+  .quote-tabs
+    flex-wrap: wrap
+    .item
+      width: 100%
 
+.services-tabs .tabs-wrapper .wrap .item
+  border-color: transparent
 
-
-
-
+.wpcf7-not-valid-tip
+  white-space: nowrap
   
+.ui-widget-header
+  background: $bg
+  font-family: $font
+.ui-datepicker-month
+  font-family: $font
 
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active
+  background: $bg
 
+.ui-datepicker-current-day 
+  .ui-button, .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, html .ui-button.ui-state-disabled:active, html .ui-button.ui-state-disabled:hover
+    background: $main
+    color: $text
 
-
-
-
-
+.ui-widget-content
+  background: $bg
   
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight
+  color: $main
 
 
-
-
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus, .ui-button:hover, .ui-button:focus
+  background: $main
+  color: #fff
 
 
 
