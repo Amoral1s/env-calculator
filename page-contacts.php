@@ -75,6 +75,20 @@ get_header();
         </div>
       </div>
   </div>
+  <div class="contacts-licenses">
+    <div class="container">
+      <b class="title">Licenses:</b>
+      <p>MC-824068</p>
+      <p>US DOT 2396811</p>
+      <p>NJ DCA 39PM00110000</p>
+      <p>NYS DOT T-37550</p>
+      <p>CT DOT 1777</p>
+      <p>MA MDPU 31909</p>
+      <p>PA PUC A-8921759</p>
+      <p>ON CVOR 178240686</p>
+      <p>DC RA 420619000006</p>
+    </div>
+  </div>
   <div class="question contacts-question container wow animate__animated animate__fadeInUp">
     <div class="question-wrap">
       <div class="left">

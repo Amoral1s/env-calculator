@@ -3424,6 +3424,7 @@ div.asl_r *
 .hide-bc
   .breadcrumbs
     opacity: 0
+    display: none
     pointer-events: none
 
 
@@ -4171,12 +4172,34 @@ div.asl_r *
 .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus, .ui-button:hover, .ui-button:focus
   background: $main
   color: #fff
+.file
+  &>span
+    display: none!important
 
-
-
+.contacts-licenses
+  margin-top: 60px
+  .container
+    display: flex
+    flex-wrap: wrap
+    justify-content: flex-start
+    align-items: center
+  b
+    width: 100%
+    width: 100%
+  p
+    font-size: 20px
+    width: max-content
+    margin-right: 30px
+    font-weight: 500 
+    display: block
+    margin-bottom: 10px
   
-
-
+@media (max-width: 767px)
+  .contacts-question.question
+    margin-top: 30px
+  .contact-licenses
+    p
+      font-size: 18px
 
 
 

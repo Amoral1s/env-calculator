@@ -4358,6 +4358,7 @@ div.asl_r * {
 
 .hide-bc .breadcrumbs {
   opacity: 0;
+  display: none;
   pointer-events: none;
 }
 
@@ -5030,6 +5031,44 @@ html .ui-button.ui-state-disabled:active {
 .ui-button:focus {
   background: #FE7300;
   color: #fff;
+}
+
+.file > span {
+  display: none !important;
+}
+
+.contacts-licenses {
+  margin-top: 60px;
+}
+
+.contacts-licenses .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contacts-licenses b {
+  width: 100%;
+  width: 100%;
+}
+
+.contacts-licenses p {
+  font-size: 20px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-right: 30px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .single .comments #wpdcom .wpd-comment-header .wpd-comment-share,
@@ -8132,6 +8171,14 @@ div.asl_r.vertical {
 
   .quote-tabs .item {
     width: 100%;
+  }
+
+  .contacts-question.question {
+    margin-top: 30px;
+  }
+
+  .contact-licenses p {
+    font-size: 18px;
   }
 
   .content .wp-block-group__inner-container .wp-block-image {

@@ -385,35 +385,38 @@ if (links) {
 
 		ratngTopWrap.appendChild(rating);
 		votes.textContent = ratngVotes;
-	}
-	$(".anchor").click(function () {
+	} 
+	$(".anchor").click(function () { 
 		var elementClick = $(this).attr("href");
 		var destination = $(elementClick).offset().top - 50;
 		$("html:not(:animated),body:not(:animated)").animate({scrollTop: destination}, 500);
 		return false;
 	});
 
- 
+ const fileWrap = document.querySelectorAll('form .file');
 
-	const fileInput = document.querySelector('.wpcf7-file');
-
-	if (fileInput) {
-		const fileWrap = document.querySelector('div.file');
-		//const fileName = fileInput.files[0].name;
-
-		fileWrap.addEventListener('click', () => {
+ if (fileWrap.length > 0) {
+	fileWrap.forEach(wrap => {
+		const fileInput = wrap.querySelector('input');
+		wrap.addEventListener('click', () => {
 			fileInput.click();
 		});
-		const text = fileWrap.querySelector('b');
+		const text = wrap.querySelector('b');
 
 		fileInput.addEventListener('change', () => {
-			if (fileInput.files[0]) {
-				text.textContent = fileInput.files[0].name;
+			if (fileInput.files.length > 0) {
+				text.textContent = '';
+				for (let i = 0; i < fileInput.files.length; i++) {
+					text.textContent += fileInput.files[i].name + ' | ';
+				}
 			} else {
 				text.textContent = 'Drop a file here or click to upload';
 			}
-		})
-	}
+		});
+	});
+ }
+
+
 
 	const tabsItem = document.querySelectorAll('.tabs-title .item');
 
@@ -536,7 +539,7 @@ if (links) {
 			$('#thx-sub').removeClass('popup-thx');
 			$('.overlay').fadeIn(300);
 
-		} else if (event.detail.contactFormId == '445' || event.detail.contactFormId == '2019' || event.detail.contactFormId == '2020') {
+		} else if (event.detail.contactFormId == '445' || event.detail.contactFormId == '2019' || event.detail.contactFormId == '2020' || event.detail.contactFormId == '2145') {
 			
 			$('#thx').fadeIn(200);
 			$('.popup').addClass('popup-thx');
@@ -556,14 +559,18 @@ if (links) {
 				$('.zoom-section').fadeIn(200);
 				zoomFunc();
     	}, 2500);
+			var destination = $('#top').offset().top;
+			$("html:not(:animated),body:not(:animated)").animate({scrollTop: destination}, 500);
 		} else {
 			$('#thx').fadeIn(200);
 			$('.popup').addClass('popup-thx');
 			$('#thx').removeClass('popup-thx');
 			$('.overlay').fadeIn(300);
 		}
-   
-    
+		if (localStorage.getItem('url')) {
+			localStorage.removeItem('url')
+
+		}
   });
   $(".wpcf7").on('wpcf7invalid', function(event){
     alert('Fill in all fields correctly and submit the form again!');
@@ -655,10 +662,47 @@ if (links) {
 
 	if (inputPhones.length > 0) {
 		inputPhones.forEach(input => {
-			IMask(input, {mask: '+{1} (000) 000-0000'})
+			IMask(input, {mask: '(000) 000-0000'})
 		});
 	}
 
-	
+	const setUrl = () => {
+		const date = new Date;
+		const hours = date.getHours();
+		const min = date.getMinutes();
+		const href = window.location.href;
+
+		if (localStorage.getItem('url')) {
+			const localUrls = localStorage.getItem('url');
+			const newUrl = `
+			${localUrls} | 
+
+			${hours}:${min} - ${href} | 
+
+			`;
+			localStorage.setItem('url', newUrl);
+		} else {
+			const newUrl = `
+
+			${hours}:${min} - ${href} | 
+			
+			`;
+			localStorage.setItem('url', newUrl);
+		}
+		const inputURLS = document.querySelectorAll('input.user_urls');
+
+		if (inputURLS.length > 0) {
+			setTimeout(() => {
+				inputURLS.forEach(input => {
+					if (localStorage.getItem('url')) {
+						input.value = localStorage.getItem('url');
+					}
+				});
+			}, 5000);
+		}
+	}
+	setUrl();
+
+
 
 }); //end

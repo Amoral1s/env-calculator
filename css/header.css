@@ -669,105 +669,6 @@ section {
   padding-top: 150px;
 }
 
-.phone-toggle {
-  position: relative;
-}
-
-.phone-toggle .toggle {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.phone-toggle .phone-mini {
-  position: absolute;
-  display: none;
-  width: 270px;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.1);
-  -webkit-backdrop-filter: blur(60px);
-          backdrop-filter: blur(60px);
-  padding: 24px;
-  top: 45px;
-  right: -10px;
-  z-index: 300;
-}
-
-.phone-toggle .phone-mini .social {
-  display: block;
-  margin: 0;
-}
-
-.phone-toggle .phone-mini .social a {
-  margin: 0;
-  height: auto;
-  width: auto;
-  padding: 0;
-  background: transparent;
-  margin-bottom: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.phone-toggle .phone-mini .social a:last-child {
-  margin-bottom: 0;
-}
-
-.phone-toggle .phone-mini .social a .icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-right: 8px;
-}
-
-.phone-toggle .phone-mini .social a p {
-  font-size: 14px;
-  font-weight: 400;
-  margin: 0;
-}
-
-.phone-toggle .phone-mini .close-mini {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-.phone-toggle .phone-mini .phone {
-  font-weight: 700;
-  font-size: 18px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 8px;
-  text-align: start;
-}
-
-.phone-toggle .phone-mini .phone svg {
-  display: block;
-  margin-right: 8px;
-}
-
-.phone-toggle .phone-mini .email {
-  font-size: 16px;
-  width: 100%;
-  text-align: start;
-  display: block;
-  color: #FE7300;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-}
-
 @media (min-width: 2000px) {
   .bg-section {
     background-size: 2200px;
@@ -1257,7 +1158,110 @@ section {
   }
 
   .page-top {
-    padding-top: 110px;
+    padding-top: 80px;
+  }
+
+  .offer-wrap {
+    margin-top: 0;
+  }
+
+  .phone-toggle {
+    position: relative;
+  }
+
+  .phone-toggle .toggle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .phone-toggle .phone-mini {
+    position: absolute;
+    display: none;
+    width: 270px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(60px);
+            backdrop-filter: blur(60px);
+    padding: 24px;
+    top: 45px;
+    right: -10px;
+    z-index: 300;
+  }
+
+  .phone-toggle .phone-mini .social {
+    display: block;
+    margin: 0;
+  }
+
+  .phone-toggle .phone-mini .social a {
+    margin: 0;
+    height: auto;
+    width: auto;
+    padding: 0;
+    background: transparent;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+
+  .phone-toggle .phone-mini .social a:last-child {
+    margin-bottom: 0;
+  }
+
+  .phone-toggle .phone-mini .social a .icon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: 8px;
+  }
+
+  .phone-toggle .phone-mini .social a p {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .phone-toggle .phone-mini .close-mini {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .phone-toggle .phone-mini .phone {
+    font-weight: 700;
+    font-size: 18px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 8px;
+    text-align: start;
+  }
+
+  .phone-toggle .phone-mini .phone svg {
+    display: block;
+    margin-right: 8px;
+  }
+
+  .phone-toggle .phone-mini .email {
+    font-size: 16px;
+    width: 100%;
+    text-align: start;
+    display: block;
+    color: #FE7300;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   }
 }
 

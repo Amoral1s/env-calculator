@@ -1,6 +1,6 @@
 <?php
 /**
- Template Name:  Get a quote for SEO
+ Template Name:  Get a quote for SEO - calc
 */
 
 get_header();
@@ -11,26 +11,8 @@ get_header();
     <?php if ( function_exists('yoast_breadcrumb') ) { yoast_breadcrumb('<div class="breadcrumbs">', '</div>'); } ?>
     <h1 class="page-title title-sub"><?php the_title(); ?></h1>
     <p class="subtitle"><?php the_field('subtitle'); ?></p>
-    <b class="title">Move Type</b>
-    <div class="quote-tabs">
-      <div data-id="Residential" class="item active">
-        Residential
-      </div>
-      <div data-id="Commercial / Office" class="item">
-        Commercial / Office
-      </div>
-      <div data-id="Fine Art" class="item">
-        Fine Art
-      </div>
-    </div>
     <div class="quote-page-form q-main q-residential">
-      <?php echo do_shortcode('[contact-form-7 id="dfeac37" title="Get a quote (Residential)"]'); ?>
-    </div>
-    <div class="quote-page-form q-main q-commercial" style="display: none">
-      <?php echo do_shortcode('[contact-form-7 id="a1df1ea" title="Get a quote (Commercial)"]'); ?>
-    </div>
-    <div class="quote-page-form q-main q-art" style="display: none">
-      <?php echo do_shortcode('[contact-form-7 id="571f6ef" title="Get a quote (Fine Art)"]'); ?>
+      <?php echo do_shortcode('[contact-form-7 id="9384fcb" title="Get a quote (seo)"]'); ?>
     </div>
   </div>
 </section>

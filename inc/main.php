@@ -99,22 +99,22 @@ function my_styles() {
 		wp_enqueue_style( 'wowcss', get_template_directory_uri() . '/css/wow.min.css' );
 		//wp_enqueue_style( 'mag', get_template_directory_uri() . '/css/magnific-popup.min.css' );
 		wp_enqueue_style( 'swiper', get_template_directory_uri() . '/css/swiper.min.css' );
-		wp_enqueue_style( 'main', get_template_directory_uri() . '/css/main.min.css' );
+		wp_enqueue_style( 'main', get_template_directory_uri() . '/css/main-v3.min.css' );
 		wp_enqueue_style( 'stylecss', get_stylesheet_uri() ); 
 }
 
 add_action( 'wp_footer', 'my_scripts' );
 function my_scripts() {
 	wp_deregister_script( 'jquery-core' );
-	//wp_register_script( 'jquery-core', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js');
-	wp_register_script( 'jquery-core', get_template_directory_uri() . '/js/jquery-3.2.1.js');
+	wp_register_script( 'jquery-core', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js');
+	//wp_register_script( 'jquery-core', get_template_directory_uri() . '/js/jquery-3.2.1.js');
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDkMz0P21Wa3wrOFlwx6z9VwjRAlCKty6I&libraries=places', array('jquery'), null, true );
 	wp_enqueue_script( 'wow', get_template_directory_uri() . '/js/wow.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'phone_mask', get_template_directory_uri() . '/js/phone_mask.min.js', array('jquery'), null, true );
 	//wp_enqueue_script( 'magnific', get_template_directory_uri() . '/js/magnific-popup.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/js/swiper.min.js', array('jquery'), null, true );
-	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/script.js', array('jquery'), null, true );
+	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/script-v3.js', array('jquery'), null, true );
 }
 
 @ini_set( 'upload_max_size' , '512M' );
@@ -151,7 +151,7 @@ function fix_svg_mime_type( $data, $file, $filename, $mimes, $real_mime = '' ){
 	return $data;
 }
 
-add_filter('wpcf7_validate_tel*', 'dco_wpcf7_validate', 10, 2);
+/* add_filter('wpcf7_validate_tel*', 'dco_wpcf7_validate', 10, 2);
 function dco_wpcf7_validate($result, $tag) {
     //Получаем объект тега
     $tag = new WPCF7_Shortcode($tag);
@@ -160,7 +160,7 @@ function dco_wpcf7_validate($result, $tag) {
     //Указываем правила для тега с типом "tel"
     if ('tel' == $tag->basetype) {
         //Если тег обязателен и имеет пустое значение — выводим сообщение об ошибке
-        if ($tag->is_required() && 17 != strlen($value)) {
+        if ($tag->is_required() && 14 != strlen($value)) {
             $result->invalidate($tag, 'Please enter the correct phone number');
             //Если значение не пустое и не является корректным телефонным номером — выводим сообщение об ошибке
         } elseif ('' != $value && !wpcf7_is_tel($value)) {
@@ -169,4 +169,4 @@ function dco_wpcf7_validate($result, $tag) {
         }
     }
     return $result;
-}
+} */
