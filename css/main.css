@@ -5033,7 +5033,7 @@ html .ui-button.ui-state-disabled:active {
   color: #fff;
 }
 
-.file > span {
+.file span {
   display: none !important;
 }
 
@@ -5069,6 +5069,10 @@ html .ui-button.ui-state-disabled:active {
   font-weight: 500;
   display: block;
   margin-bottom: 10px;
+}
+
+.grecaptcha-badge {
+  max-width: 100px;
 }
 
 .single .comments #wpdcom .wpd-comment-header .wpd-comment-share,

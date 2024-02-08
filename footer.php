@@ -1,4 +1,3 @@
-
 <footer class="footer">
   <div class="container footer-wrap">
     <div class="footer-left">
@@ -191,6 +190,39 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/94050452" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+
+<style>
+	@media (max-width: 1245px) {
+		.benefits-wrap {
+			flex-direction: column-reverse;
+			
+		}
+		.benefits-wrap .left {
+			width: 100%;
+		}
+		.benefits-wrap .right {
+			margin-bottom: 30px;
+			width: 100%;
+		}
+	}
+
+</style>
+<script>
+	const ref = document.querySelectorAll('input[name="How_find_company[]"]');
+	const refInputVal = document.querySelectorAll('input.ref-source'); 
+	if (ref.length > 0 && refInputVal.length > 0) {
+		ref.forEach(elem => {
+			elem.addEventListener('change', () => {
+				ref.forEach(e => e.checked = false);
+				elem.checked = true;
+				refInputVal.forEach(input => input.value = elem.value)
+				refInputVal.forEach(input2 => console.log(input2.value))
+			});
+		});
+	} 
+	
+	
+</script>
 
 
 </body>

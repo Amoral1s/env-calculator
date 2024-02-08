@@ -278,6 +278,30 @@ get_header();
 </section>
 <?php } ?>
 
+<?php if (get_field('dest_title')) { ?>
+<section class="destination wow animate__animated animate__fadeInUp">
+  <div class="container">
+    <h2 class="title "><?php the_field('dest_title'); ?></h2>
+    <div class="destination-wrap ">
+    <?php if(have_rows('destinations')) : while(have_rows('destinations')) : the_row(); ?>
+    <ul>
+      <?php if(have_rows('columns')) : while(have_rows('columns')) : the_row(); ?>
+      <li>
+        <?php if (get_sub_field('link')) { ?>
+        <a href="<?php the_sub_field('link'); ?>"><?php the_sub_field('name'); ?></a>
+        <?php } else { ?>
+        <div><?php the_sub_field('name'); ?></div>
+        <?php } ?>
+      </li>
+      <?php endwhile; endif; ?>
+    </ul>
+    <?php endwhile; endif; ?>
+
+    </div>
+  </div>
+</section>
+<?php } ?>
+
 <?php if (get_field('seo_title')) { ?>
 <section class="seo wow animate__animated animate__fadeInUp">
   <div class="container">
