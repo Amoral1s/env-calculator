@@ -100,6 +100,8 @@ function my_styles() {
 		//wp_enqueue_style( 'mag', get_template_directory_uri() . '/css/magnific-popup.min.css' );
 		wp_enqueue_style( 'swiper', get_template_directory_uri() . '/css/swiper.min.css' );
 		wp_enqueue_style( 'main', get_template_directory_uri() . '/css/main.min.css' );
+		wp_enqueue_style( 'coupons', get_template_directory_uri() . '/css/coupon.min.css' );
+		wp_enqueue_style( 'quiz', get_template_directory_uri() . '/css/quiz.min.css' );
 		wp_enqueue_style( 'stylecss', get_stylesheet_uri() ); 
 }
 
@@ -115,7 +117,9 @@ function my_scripts() {
 	wp_enqueue_script( 'phone_mask', get_template_directory_uri() . '/js/phone_mask.min.js', array('jquery'), null, true );
 	//wp_enqueue_script( 'magnific', get_template_directory_uri() . '/js/magnific-popup.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/js/swiper.js', array('jquery'), null, true );
-	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/script.js', array('jquery'), null, true );
+	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), null, true );
+	wp_enqueue_script( 'coupons', get_template_directory_uri() . '/js/coupon.js', array('jquery'), null, true );
+	wp_enqueue_script( 'quiz', get_template_directory_uri() . '/js/quiz.js', array('jquery'), null, true );
 }
 
 @ini_set( 'upload_max_size' , '512M' );

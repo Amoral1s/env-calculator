@@ -80,8 +80,8 @@
           <a class="phone" href="tel:<?php the_field('phone', 'options'); ?>">
             <?php the_field('phone', 'options'); ?>          
           </a> 
-          <a class="email" href="mailto:<?php the_field('email', 'options'); ?>">
-            <?php the_field('email', 'options'); ?>         
+          <a class="email" href="mailto:<?php the_field('email_sec', 'options'); ?>">
+            <?php the_field('email_sec', 'options'); ?>         
           </a> 
         </div> 
         <div class="social"> 
@@ -120,8 +120,8 @@
               </svg>
               <?php the_field('phone', 'options'); ?>          
             </a> 
-            <a class="email" href="mailto:<?php the_field('email', 'options'); ?>">
-              <?php the_field('email', 'options'); ?>         
+            <a class="email" href="mailto:<?php the_field('email_sec', 'options'); ?>">
+              <?php the_field('email_sec', 'options'); ?>         
             </a> 
             <div class="social"> 
               <a target="blank" href="<?php the_field('facebook_link', 'options'); ?>"> 
@@ -190,8 +190,8 @@
                 </svg>
                 <?php the_field('phone', 'options'); ?>          
               </a> 
-              <a class="email" href="mailto:<?php the_field('email', 'options'); ?>">
-                <?php the_field('email', 'options'); ?>         
+              <a class="email" href="mailto:<?php the_field('email_sec', 'options'); ?>">
+                <?php the_field('email_sec', 'options'); ?>         
               </a> 
               <div class="social"> 
                 <a target="blank" href="<?php the_field('facebook_link', 'options'); ?>"> 
@@ -241,8 +241,8 @@
       <a class="phone" href="tel:<?php the_field('phone', 'options'); ?>">
         <?php the_field('phone', 'options'); ?>          
       </a> 
-      <a class="email" href="mailto:<?php the_field('email', 'options'); ?>">
-        <?php the_field('email', 'options'); ?>         
+      <a class="email" href="mailto:<?php the_field('email_sec', 'options'); ?>">
+        <?php the_field('email_sec', 'options'); ?>         
       </a> 
       <div class="social">
         <a target="blank" href="<?php the_field('facebook_link', 'options'); ?>"> 

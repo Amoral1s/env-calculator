@@ -19,8 +19,8 @@ get_header();
           <p><?php the_field('work_time'); ?></p>
         </div>
         <div class="item">
-          <a class="email" href="mailto:<?php the_field('email', 'options'); ?>">
-            <?php the_field('email', 'options'); ?>         
+          <a class="email" href="mailto:hello@elatemoving.com">
+            hello@elatemoving.com        
           </a> 
           <p>Customer Support Service</p>
         </div>

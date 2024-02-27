@@ -1,0 +1,521 @@
+@import "./reset/_vars"
+
+
+.stripe-offer
+  margin-bottom: 80px
+  .total
+    margin-left: 20px 
+    display: block
+    small
+      font-size: 14px
+      display: block
+      margin-bottom: 4px
+    .row
+      display: flex
+      align-items: center
+      justify-content: flex-start
+      b
+        font-size: 24px
+        margin-right: 10px
+      p
+        font-size: 16px
+        color: rgba(#fff, .5)
+        position: relative
+        &::after
+          position: absolute
+          content: ''
+          top: 50%
+          transform: translateY(-50%)
+          left: 0
+          width: 100%
+          background-color: rgba(#fff, .5)
+          height: 1px
+  .submit
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    .button
+      width: 150px
+  &-form
+    position: relative
+    z-index: 10
+    .radio
+      display: flex
+      justify-content: flex-start
+      align-items: flex-start
+      margin-bottom: 40px
+      label
+        display: block
+        margin-right: 30px
+        position: relative
+        cursor: pointer
+        padding-left: 34px
+        transition: .2s
+        &:hover
+          transition: .2s
+          strong
+            color: $main
+        strong
+          font-size: 16px
+          font-weight: 400
+          transition: .2s
+        .top
+          display: flex
+          justify-content: flex-start
+          align-items: center
+          margin-bottom: 5px
+          b,p
+            line-height: 1.2
+          b
+            font-size: 18px
+            color: #fff
+            margin-right: 10px
+          p
+            font-size: 16px
+            color: rgba(255, 255, 255, 0.50)
+            position: relative
+            &::after
+              position: absolute
+              content: ''
+              height: 1px
+              width: 100%
+              top: 50%
+              transform: translateY(-50%)
+              left: 0
+              background-color: rgba(255, 255, 255, 0.50)
+        &::after
+          position: absolute
+          content: ''
+          height: 24px
+          width: 24px
+          border-radius: 100%
+          left: 0
+          top: 50%
+          transform: translateY(-50%)
+          background-color: rgba(255, 255, 255, 0.10)
+        &:before
+          position: absolute
+          content: ''
+          height: 12px
+          width: 12px
+          background-color: $main
+          border-radius: 100%
+          top: 50%
+          transform: translateY(-50%)
+          left: 7px
+          opacity: 0
+      input
+        display: none
+        &:checked + label
+          &::after
+            border: 1px solid $main
+          &::before
+            opacity: 1
+  .quantity
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 135px
+    border-radius: 16px
+    background-color: rgba(#fff, .1)
+    height: 60px
+    margin-right: 15px
+    .plus
+      margin-left: 15px
+    .minus
+      margin-right: 20px
+    .icon
+      display: flex
+      justify-content: center
+      align-items: center
+      cursor: pointer
+      &:hover
+        svg path
+          stroke: $main
+    input
+      background: transparent
+      padding: 0
+      color: #fff
+      border: none
+      width: 12px
+      font-size: 16px
+  &-wrap
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+    position: relative
+    .left
+      width: 740px
+      h1
+        margin-bottom: 25px
+      .subtitle
+        font-size: 18px
+        display: block
+        margin-bottom: 40px 
+        max-width: 600px
+        min-width: 0
+        width: 100%
+        p
+          margin: 0
+          font-size: 18px
+    .right
+      width: calc(100% - 740px)
+      position: relative
+      top: -60px
+      img
+        display: block
+        object-fit: contain
+
+
+.stripe-hight
+  &-wrap
+    display: flex
+    justify-content: space-between
+    align-items: stretch
+    .item
+      border-radius: 24px
+      backdrop-filter: blur(60px)
+      width: calc(25% - 20px)
+      background-color: rgba(#fff, .1)
+      padding: 30px
+      .icon
+        display: block
+        margin-bottom: 65px
+      b
+        font-size: 18px
+        margin-bottom: 15px
+        display: block
+      p
+        margin: 0
+
+.stripe-detalis
+  &-wrap
+    display: block
+  .item
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+    margin-bottom: 20px
+    .name
+      width: 220px
+      display: flex
+      justify-content: flex-start
+      align-items: flex-end
+      .line
+        width: 100%
+        height: 1px
+        background-color: rgba(#fff, .3)
+        margin: 0 20px
+        display: block
+        margin-bottom: 6px
+      b
+        white-space: nowrap
+        width: max-content
+        font-size: 18px
+        line-height: 1.5
+    p
+      width: calc(100% - 220px)
+      font-size: 18px
+
+
+@media (max-width: 992px)
+  .stripe-offer
+    &-form
+      .radio
+        display: block
+        label
+          margin-bottom: 20px
+    &-wrap
+      position: relative
+      display: block
+      .right
+        width: 100%
+        width: 220px
+        margin-right: 0
+        margin-left: auto
+        position: absolute
+        top: 340px
+        right: 60px
+      .left
+        width: 100%
+  .stripe-hight-wrap 
+    flex-wrap: wrap
+    .item
+      width: calc(50% - 10px)
+      margin-bottom: 20px
+
+@media (max-width: 767px)
+  .stripe-offer
+    &-wrap
+      .right
+        top: 230px
+        right: -30px
+
+@media (max-width: 578px)
+  .stripe-detalis .item
+    display: block
+    margin-bottom: 25px
+    p
+      width: 100%
+      font-size: 16px
+      color: rgba(#fff, .7)
+    .name
+      margin-bottom: 1px
+      width: 100%
+      b
+        font-size: 18px
+      .line
+        display: none
+  .stripe-hight-wrap .item
+    width: 100%
+    padding: 20px
+    border-radius: 16px
+    .icon
+      margin-bottom: 20px
+  .stripe-offer
+    &-form
+      margin-top: 330px
+    &-wrap
+      .right
+        top: 240px
+        right: auto
+        left: 50%
+        transform: translateX(-50%)
+
+@media (max-width: 520px)
+  .stripe-offer 
+    &-wrap
+      .right
+        top: 290px
+@media (max-width: 430px)
+  .stripe-offer 
+    &-form
+      margin-top: 360px
+    .left
+      .subtitle
+        p
+          font-size: 16px
+    &-wrap
+      .right
+        top: 360px
+
+
+.popup.sq-coupon-form
+  .submit .wpcf7-stripe .card-element
+    height: 60px
+    padding-top: 20px
+  .cf7sa-form-code
+    margin-bottom: 15px
+  .credit_card_details
+    &>label
+      display: none
+    &>.StripeElement
+      height: 60px
+      border-radius: 12px
+      background-color: #fff
+      border-radius: 12px
+      padding-top: 20px
+      margin-bottom: 3px
+  .wpcf7-stripe
+    position: relative
+  .wpcf7-spinner
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+  .buttons
+    position: relative
+    
+    button
+      background-color: $main
+      color: #fff
+      font-size: 16px
+      display: flex
+      justify-content: center
+      align-items: center
+      border-radius: 12px
+      height: 60px
+      transition: .2s
+      &:hover
+        transition: .2s
+        background-color: $button_hover
+  .input
+    margin-bottom: 20px
+    input
+      border-radius: 12px
+  &>b
+    font-size: 24px
+    display: block
+    margin-bottom: 20px
+  .c-total
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    margin-bottom: 20px
+    b
+      font-size: 18px
+      font-weight: 400
+    p
+      font-size: 20px
+      font-weight: 600
+      padding-left: 15px
+  .submit
+    .wpcf7-form-control-wrap
+      margin-bottom: 15px
+      padding: 0
+    .wpcf7-not-valid-tip
+      font-size: 12px
+    .wpcf7-stripe .card-element
+      background-color: #fff
+      border-radius: 12px
+      border: none
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

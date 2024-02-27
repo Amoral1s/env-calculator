@@ -48,7 +48,7 @@ let { src, dest } = require('gulp'),
 
 function browserSync(params) {
 	browsersync.init({
-		proxy: "http://elatemoving-local.com/",
+		proxy: "https://elatemoving-local.com/",
 		notify: false
 	});
 }

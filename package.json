@@ -29,5 +29,8 @@
 		"sass": "latest",
 		"transform-runtime": "0.0.0",
 		"webp-converter": "2.2.3"
+	},
+	"dependencies": {
+		"caniuse-lite": "^1.0.30001591"
 	}
 }

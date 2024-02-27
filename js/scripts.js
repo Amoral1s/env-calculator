@@ -436,13 +436,18 @@ if (links) {
  
 		
   $(".wpcf7").on('wpcf7mailsent', function(event){
-
+ 
 		if (event.detail.contactFormId == '426') {
 			$('#thx-sub').fadeIn(200);
 			$('.popup').addClass('popup-thx');
 			$('#thx-sub').removeClass('popup-thx');
 			$('.overlay').fadeIn(300);
 
+		} else if (event.detail.contactFormId == '3027' || event.detail.contactFormId == '3030') {
+			$('#thx-coupon').fadeIn(200);
+			$('.popup').addClass('popup-thx');
+			$('#thx-coupon').removeClass('popup-thx');
+			$('.overlay').fadeIn(300);
 		} else if (event.detail.contactFormId == '445' || event.detail.contactFormId == '2019' || event.detail.contactFormId == '2020' || event.detail.contactFormId == '2145') {
 			
 			$('#thx').fadeIn(200);
