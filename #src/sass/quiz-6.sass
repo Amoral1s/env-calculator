@@ -1,0 +1,969 @@
+@import "./reset/_vars"
+.mt50
+  margin-top: 50px
+
+.button.start-btn
+  opacity: .7
+  pointer-events: none
+  &.ready
+    opacity: 1
+    pointer-events: all
+
+.quiz-top
+  height: 660px
+  padding-bottom: 50px
+  margin-bottom: 50px
+  .subtitle
+    margin-bottom: 0
+  .page-title
+    margin-bottom: 25px
+  .container
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: flex-end
+    height: 100%
+
+.quiz-start
+  display: block
+  .item
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: 30px
+    border-radius: 24px
+    background:  rgba(255, 255, 255, 0.10)
+    backdrop-filter: blur(60px)
+    margin-bottom: 15px
+    cursor: pointer
+    border: 1px solid  transparent
+
+    transition: .2s
+    &.active
+      border-color: #FE7300
+      b
+        color: $button_hover
+    &:hover
+      transition: .2s
+      border-color:  #FE7300
+
+    .right
+      width: calc(100% - 30px - 20px)
+      b
+        font-size: 18px
+        font-weight: 700
+        margin-bottom: 6px
+        display: block
+        line-height: 1.2
+      p
+        color: rgba(255, 255, 255, 0.50)
+        margin: 0
+        line-height: 1.2
+    .left
+      width: 30px
+      display: flex
+      align-items: center
+      img
+        display: block
+        object-fit: contain
+
+.quiz-steps
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 100%
+  margin-top: 50px
+  &.disab
+    .btns
+      .next
+        opacity: .7
+        pointer-events: none
+  .btns
+    min-width: max-content
+    display: flex
+    margin-right: 50px
+    .button
+      white-space: nowrap
+      padding: 0 40px
+      &.back
+        border: 1px solid  rgba(255, 255, 255, 0.15)
+        color: rgba(255, 255, 255, 0.50)
+        margin-right: 20px
+        &.start
+          display: none
+        &:hover
+          color: #fff
+      &.next
+        padding: 0 75px
+        &.start
+          opacity: .5
+          pointer-events: none
+  .steps
+    width: 100%
+    display: block
+    &-count
+      font-size: 18px
+      color: #fff
+      margin-bottom: 15px
+    &-list
+      display: flex
+      align-items: center
+      justify-content: space-between
+      position: relative
+      left: -5px
+      span
+        width: 100%
+        display: flex
+        align-items: center
+        margin: 0 5px
+        height: 8px
+        border-radius: 999px
+        background-color: rgba(255, 255, 255, 0.05)
+        &.active
+          background-color: $main
+
+
+.quiz-wrap
+  &-step
+    flex-wrap: wrap
+  .title
+    font-size: 32px
+    margin-bottom: 10px
+  .subtitle
+    font-size: 18px
+    line-height: 1.5
+    margin-bottom: 30px
+  .title, .subtitle
+    width: 100%
+    max-width: 100%
+
+
+.step-features
+  display: flex
+  justify-content: flex-start
+  align-items: stretch
+  flex-wrap: wrap
+  min-width: calc(100% + 15px)
+  .item
+    width: calc(25% - 15px)
+    margin-right: 15px
+    margin-bottom: 15px
+    background-color: #fff
+    border-radius: 24px
+    padding: 25px
+    position: relative
+    background: rgba(255, 255, 255, 0.05)
+    backdrop-filter: blur(60px)
+    &:hover
+      .front
+        transition: .5s
+        opacity: 0
+    .front
+      position: absolute
+      width: 100%
+      height: 100%
+      display: flex
+      justify-content: center
+      align-items: center
+      z-index: 5
+      flex-direction: column
+      border-radius: 24px
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      background-color: #313B41
+      padding: 25px
+      transition: .5s
+      img
+        display: block
+        margin-bottom: 25px
+      b
+        text-align: center
+    .back
+      p
+        font-size: 16px
+        line-height: 1.2
+        color: rgba(255, 255, 255, 0.50)
+
+.step-checkboxes
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  align-items: center
+  .item
+    width: calc(50% - 8px)
+    margin-bottom: 15px
+    label
+      border-radius: 24px
+      background: rgba(255, 255, 255, 0.10)
+      backdrop-filter: blur(60px)
+      display: flex
+      align-items: center
+      justify-content: flex-start
+      padding: 25px 30px
+      border: 1px solid transparent
+      cursor: pointer
+      transition: .2s
+      position: relative
+      &::after
+        position: absolute
+        content: ''
+        top: 50%
+        transform: translateY(-50%)
+        border: 1px solid rgba(#fff, .15)
+        border-radius: 8px
+        height: 24px
+        width: 24px
+        background-repeat: no-repeat
+        background-size: contain
+        right: 30px
+      &:hover
+        border-color: $main
+        transition: .2s
+    input:checked + label
+      border: 1px solid $main
+      &::after
+        background-color: $main
+        border-color: $main
+        background-image: url(../img/icons/check.svg)
+  
+.step-date
+  .title
+    margin-bottom: 50px
+  .row
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    width: 500px
+    max-width: 100%
+    .input
+      width: 100%
+      max-width: 100%
+      margin-bottom: 15px
+      &.time
+        width: 110px
+        height: 60px
+        position: relative
+        background-color: rgba(#fff, .1)
+        cursor: pointer
+        p
+          display: block!important
+        select
+          width: 100%
+          display: block
+          height: 60px
+          border-radius: 16px
+          background-color: transparent
+          color: #fff
+          position: relative
+          z-index: 5
+          padding-left: 15px 
+          padding-top: 25px
+          font-size: 16px
+          cursor: pointer
+      &.date
+        width: calc(100% - 125px)
+        p
+          opacity: 1
+          display: block
+        input
+          padding-top: 30px
+      input
+        width: 100%
+        max-width: 100%
+        background-color: rgba(#fff, .1)
+        border-radius: 16px
+        height: 60px
+        color: #fff
+        &::placeholder
+          color: rgba(#fff, .5)
+      p
+        color: rgba(#fff, .5)
+  
+.step-address
+  .row
+    display: flex
+    flex-wrap: wrap
+    width: 580px
+    .input
+      position: relative
+      padding-left: 0px
+      width: 100%
+      margin-bottom: 40px
+      display: flex
+      justify-content: center
+      align-items: center
+      &:last-child
+        &::after
+          display: none
+      &::after
+        position: absolute
+        content: ''
+        width: 2px
+        height: 30px
+        left: 30px
+        top: calc(100% + 5px)
+        background: rgba(255, 255, 255, 0.15)
+      .icon
+        min-width: 60px
+        margin-right: 20px
+        display: flex
+        justify-content: center
+        align-items: center
+        height: 60px
+        border-radius: 100%
+        background-color: rgba(#fff, .1)
+        position: relative
+        z-index: 5
+      input
+        width: 100%
+        max-width: 100%
+        width: 100%
+        max-width: 100%
+        background-color: rgba(#fff, .1)
+        border-radius: 16px
+        height: 60px
+        color: #fff
+        &::placeholder
+          color: rgba(#fff, .5)
+      p
+        color: rgba(#fff, .5)
+        left: 95px
+
+.step-price
+  display: flex
+  justify-content: space-between
+  align-items: flex-start
+  flex-wrap: wrap
+  .mb50
+    margin-bottom: 50px
+  .question
+    display: block
+    border-radius: 16px
+    background: rgba(255, 255, 255, 0.10)
+    margin-bottom: 15px
+    &.terms
+      .qanswer
+        position: relative
+        padding-left: 65px
+        cursor: pointer
+        &::after
+          position: absolute
+          content: ''
+          top: 0
+          left: 24px
+          border: 1px solid rgba(#fff, .15)
+          border-radius: 8px
+          height: 24px
+          width: 24px
+          background-repeat: no-repeat
+          background-size: contain
+    &.checked
+      .qanswer
+        &::after
+          background-color: $main
+          border-color: $main
+          background-image: url(../img/icons/check.svg)
+    &.active
+      .qanswer
+        display: block
+      .q-title
+        .icon
+          transform: rotate(180deg)
+    .qanswer
+      padding: 24px
+      padding-top: 0
+      display: none
+    .q-title
+      border-radius: 16px
+      padding: 24px
+      font-size: 18px
+      font-weight: 500
+      position: relative
+      display: flex
+      align-items: center
+      justify-content: space-between
+      cursor: pointer
+      b
+        transition: .2s
+      &:hover
+        b
+          color: $button_hover
+          transition: .2s
+  .mt50
+    margin-top: 50px
+    margin-bottom: 20px
+  .left
+    .item
+      display: block
+      border-radius: 24px
+      backdrop-filter: blur(60px)
+      background-color: rgba(#fff, .1)
+      margin-bottom: 15px
+      &.active
+        .item-content
+          display: block
+        .item-top
+          b
+            color: $button_hover
+          &::after
+            border-color: $main
+          &::before
+            opacity: 1
+      &-top
+        display: flex
+        justify-content: space-between
+        align-items: center
+        width: 100%
+        padding: 25px
+        cursor: pointer
+        position: relative
+        &:hover
+          b
+            color: $main
+            transition: .2s
+        &::after
+          position: absolute
+          content: ''
+          height: 24px
+          width: 24px
+          border-radius: 100%
+          border: 1px solid rgba(#fff, .15)
+          top: 50%
+          transform: translateY(-50%)
+          right: 30px
+        &::before
+          position: absolute
+          content: ''
+          height: 14px
+          width: 14px
+          border-radius: 100%
+          background-color: $main
+          top: 50%
+          opacity: 0
+          transform: translateY(-50%)
+          right: 36px
+      .meta
+        position: relative
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        &-price
+          font-size: 18px
+          font-weight: 700
+          padding-right: 44px
+          white-space: nowrap
+        b
+          font-size: 20px
+          display: block
+          line-height: 1.2
+          font-weight: 700
+          transition: .2s
+        .icon
+          display: flex
+          align-items: center
+          width: 30px
+          margin-right: 15px
+          min-width: 30px
+      &-content
+        padding: 25px
+        padding-top: 0
+        display: none
+        &>b
+          display: block
+          font-size: 18px
+          margin-bottom: 15px
+        .row
+          display: flex
+          justify-content: space-between
+          align-items: flex-end
+          width: 100%
+          margin-bottom: 15px
+          .line
+            width: 100%
+            border-bottom: 1px solid rgba(#fff, .15)
+            margin: 0 15px
+            margin-bottom: 1px
+          &:last-child
+            margin-bottom: 0
+          b
+            font-size: 16px
+            font-weight: 400
+            white-space: nowrap
+            line-height: 1
+          p
+            font-size: 16px
+            white-space: nowrap
+            font-weight: 500
+            line-height: 1
+  .right
+    width: 445px
+    border-radius: 24px
+    background-color: rgba(#fff, .1)
+    padding: 30px
+    .google
+      display: block
+      width: 100%
+      margin-top: 25px
+    b
+      font-size: 20px
+      display: block
+      margin-bottom: 15px
+    .row
+      display: flex
+      align-items: center
+      justify-content: flex-start
+      margin-bottom: 10px
+      p
+        font-size: 16px
+        color: #fff
+        font-weight: 500
+      .icon
+        display: flex
+        align-items: center
+        width: 24px
+        margin-right: 10px
+        min-width: 24px
+        img
+          display: block
+          object-fit: contain
+  .left
+    width: calc(100% - 445px - 70px)
+
+.input .wpcf7-form-control-wrap.applied
+  position: relative
+  &::after
+    position: absolute
+    content: 'Coupon applied'
+    top: 50%
+    transform: translateY(-50%)
+    right: 20px
+    font-weight: 500
+    z-index: 5
+    font-size: 16px
+    color: $main
+    
+.result-step
+  justify-content: space-between
+  align-items: flex-start
+  flex-wrap: wrap
+  
+  .right
+    width: 440px
+    padding: 30px
+    border-radius: 24px
+    background-color: rgba(#fff, .1)
+    .cancel
+      background-color: #19242B
+      border-radius: 16px
+      padding: 20px
+      position: relative
+      padding-right: 60px
+      margin-bottom: 25px
+      p
+        font-size: 14px
+      b
+        font-size: 20px
+        margin-bottom: 5px
+      .icon
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        right: 20px
+    b
+      font-size: 20px
+      font-weight: 700
+      margin-bottom: 15px
+      display: block
+    .auth
+      padding-top: 25px
+      padding-bottom: 25px
+      border-top: 1px solid rgba(#fff, .15)
+      border-bottom: 1px solid rgba(#fff, .15)
+      margin-top: 24px
+      margin-bottom: 25px
+      small
+        display: block
+        font-size: 14px
+        margin-top: 20px
+        padding-left: 34px
+        position: relative
+        &::after
+          position: absolute
+          content: ''
+      p
+        font-size: 14px
+        font-weight: 400
+        line-height: 1.2
+        margin: 0
+      .row
+        b
+          margin: 0
+      strong
+        font-size: 20px
+        line-height: 1.2
+        display: block
+    .row
+      width: 100%
+      display: flex
+      justify-content: space-between
+      align-items: center
+      margin-bottom: 15px
+      span
+        font-size: 16px
+        font-weight: 400
+        width: max-content
+        white-space: nowrap
+      p
+        font-size: 16px
+        font-weight: 500
+        white-space: nowrap
+        line-height: 1.2
+        margin: 0
+        &.coupon-amount
+          color: $main
+  .left
+    width: calc(100% - 440px - 60px)
+  .form
+    &>.title
+      margin-bottom: 50px
+      font-size: 32px
+    form
+      width: 500px
+      max-width: 100%
+      .input
+        width: 100%
+        margin-bottom: 15px
+        input
+          background-color: rgba(#fff, .1)
+          color: #fff
+          &::placeholder
+            color: rgba(#fff, .5)
+        p
+          color: rgba(#fff, .5)
+      .title
+        font-size: 24px
+        margin-bottom: 20px
+  .summary
+    margin-bottom: 30px
+    .title
+      margin-bottom: 40px
+    &-row
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+    .row-item
+      width: calc(50% - 5px)
+      margin-bottom: 30px
+      display: flex
+      justify-content: flex-start
+      align-items: center
+      &:nth-child(even)
+        width: calc(35% - 10px)
+      &:nth-child(odd)
+        width: calc(63% - 10px)
+      .icon
+        width: 60px
+        margin-right: 20px
+        display: flex
+        justify-content: center
+        align-items: center
+        border-radius: 100%
+        background-color: rgba(#fff, .1)
+        height: 60px
+      .row-meta
+        width: calc(100% - 80px)
+        display: block
+        p
+          font-size: 14px
+          color: rgba(#fff, .5)
+          display: block
+          line-height: 1.2
+          margin-bottom: 7px
+        b
+          font-size: 16px
+          font-weight: 500
+          line-height: 1.2
+          margin: 0
+  
+.quiz-wrap
+  .wpcf7-stripe
+    .card-element
+      //background: rgba(255, 255, 255, 0.10)
+      background-color: #fff
+      color: #fff!important
+      border-radius: 16px
+      padding: 20px
+      .InputElement
+        color: #fff!important
+    .buttons
+      button
+        background-color: $main
+        color: #fff
+        display: flex
+        align-items: center
+        justify-content: center
+        border-radius: 16px
+        height: 60px
+        max-width: 100%
+        font-size: 18px
+  .success
+    padding: 30px
+    margin-top: 30px
+    border-radius: 32px
+    color: #fff
+    background-color: $main
+    width: 800px
+    max-width: 100%
+    p
+      font-size: 20px
+    b
+      font-size: 28px
+      display: block
+      margin-bottom: 15px
+  
+.button.next.no-disabled-force
+  opacity: 1!important
+  pointer-events: all!important
+
+  
+
+
+  
+
+
+  
+.quiz-wrap
+  .quiz-wrap-step
+    display: none
+    &.active
+      display: flex!important
+
+  
+@media (max-width: 992px)
+  .result-step .summary-row
+    display: block
+    .row-item
+      width: 100%!important
+  .result-step .form>.title
+    display: none
+  .quiz-wrap
+    .result-step 
+      flex-direction: column
+      flex-wrap: wrap
+      &>.title
+        display: flex
+        order: -4
+      .left  
+        width: 100%
+      .right
+        width: 100%
+        margin-bottom: 30px
+        order: -10
+  .quiz-top
+    height: 450px
+  .step-features
+    display: block
+    .item
+      width: 100%
+      height: auto
+      padding: 20px
+      margin-bottom: 10px
+      margin-right: 0
+      &:hover
+        .front
+          opacity: 1
+      .front
+        position: static
+        height: auto
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        flex-direction: row
+        background: transparent
+        padding: 0
+        margin-bottom: 15px
+        b
+          font-size: 18px
+          text-align: left
+        img
+          margin: 0
+          margin-right: 15px
+          width: 32px
+          object-fit: contain
+      .back
+        position: static
+        p
+          font-size: 14px
+
+  .quiz-wrap .subtitle
+    font-size: 16px
+    margin-bottom: 20px
+  .quiz-wrap .title
+    font-size: 24px
+    margin-bottom: 10px
+  .step-checkboxes .item
+    width: 100%
+  .quiz-steps
+    flex-wrap: wrap
+    .btns
+      width: 100%
+      margin-bottom: 40px
+  .step-date .title
+    margin-bottom: 30px
+  .step-price 
+    flex-wrap: wrap
+    .left
+      width: 100%
+    .right
+      width: 100%
+  
+
+@media (max-width: 767px)
+  .quiz-top
+    height: 350px
+    background-position: center
+    background-size: 767px
+    background-repeat: no-repeat
+  .step-date .row
+    width: 100%
+  .quiz-steps
+    margin-top: 20px
+  .step-address .row .input::after
+    left: 20px
+  .step-address .row .input p
+    left: 65px
+  .step-address .row .input .icon,
+  .result-step .summary .row-item .icon
+    height: 40px
+    min-width: 40px
+    width: 40px
+    margin-right: 10px
+    svg
+      width: 20px
+      height: 20px
+  .step-price .left .item-top
+    display: block
+    padding: 15px
+    .meta
+      b
+        font-size: 16px
+    .meta-price
+      margin-top: 20px
+      font-size: 16px
+  .step-price .left .item-content
+    padding: 15px
+    padding-top: 0
+    font-size: 14px
+    b
+      font-size: 18px
+    .row
+      b
+        font-size: 12px
+      p
+        font-size: 12px
+      .line
+        display: none
+  .step-price .question 
+    .q-title
+      font-size: 16px
+      padding: 15px
+    .qanswer
+      font-size: 14px
+      padding: 15px
+      padding-top: 0
+
+  .step-price .right
+    padding: 15px
+  .quiz-wrap 
+    .result-step 
+      .right
+        padding: 15px
+        min-width: calc(100% + 30px)
+        position: relative
+        left: -15px
+        border-radius: 0
+        margin-top: -50px
+  .result-step .summary .row-item .row-meta 
+    b
+      font-size: 12px
+  .quiz-wrap .success
+    min-width: calc(100% + 30px)
+    position: relative
+    left: -15px
+    border-radius: 0
+    padding: 15px
+    margin-top: 0
+    b
+      font-size: 22px
+    p
+      font-size: 14px
+
+
+.consumed
+  display: block
+  margin-top: 25px
+  label
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    cursor: pointer
+    transition: .2s
+    position: relative
+    font-size: 12px
+    padding-left: 34px
+    color: rgba(#fff, .5)
+    line-height: 1.2
+    &::after
+      position: absolute
+      content: ''
+      top: 50%
+      transform: translateY(-50%)
+      border: 1px solid rgba(#fff, .15)
+      border-radius: 4px
+      height: 20px
+      width: 20px
+      background-repeat: no-repeat
+      background-size: contain
+      left: 0px
+    &:hover
+      transition: .2s
+  input:checked + label
+    &::after
+      background-color: $main
+      background-image: url(../img/icons/check.svg)
+
+
+
+.step-address .row .input.stop
+  .icon
+    transform: rotate(45deg)
+    cursor: pointer
+    transition: .2s
+    &:hover
+      opacity: .7
+      transition: .2s
+  &.noadded
+    justify-content: flex-start
+    transition: .2s
+    .icon
+      transform: none
+      transition: .2s
+      &:hover
+        opacity: 1
+    &:hover
+      opacity: .7
+      transition: .2s
+    p
+      display: block
+      font-size: 18px
+      color: #fff
+      position: static
+      padding-left: 15px
+    input
+      display: none
+  
+
+  
+  
