@@ -718,4 +718,6 @@ if (window.screen.width <= 992) {
 }
 //Sliders end
 
+
+
 }); //end

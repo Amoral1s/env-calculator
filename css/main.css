@@ -5802,6 +5802,144 @@ html .ui-button.ui-state-disabled:active {
   max-width: 100px;
 }
 
+.crypto-small {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+     -moz-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-top: 40px;
+}
+
+.crypto-small .icon {
+  min-width: 30px;
+  margin: 0;
+  margin-right: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.crypto-small .crypto-meta {
+  display: block;
+}
+
+.crypto-small .crypto-meta b {
+  font-size: 18px;
+  color: #fff;
+  display: block;
+  margin: 0;
+  margin-bottom: 6px;
+}
+
+.crypto-small .crypto-meta p {
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.crypto-big {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+     -moz-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-bottom: 40px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(60px);
+  padding: 30px;
+}
+
+.crypto-big .icon {
+  min-width: 30px;
+  margin: 0;
+  margin-right: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.crypto-big .crypto-meta {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+     -moz-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.crypto-big .crypto-meta b {
+  font-size: 18px;
+  color: #fff;
+  display: block;
+  margin: 0;
+  margin-right: 16px;
+}
+
+.crypto-big .crypto-meta p {
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+}
+
 .single .comments #wpdcom .wpd-comment-header .wpd-comment-share,
 .single .comments #wpdcom .wpd-comment-header .wpd-comment-link {
   display: none;
@@ -7526,6 +7664,26 @@ div.asl_r.vertical {
     min-height: 170px;
   }
 
+  .crypto-big {
+    padding: 20px;
+  }
+
+  .crypto-big .crypto-meta b {
+    font-size: 16px;
+    color: #fff;
+    display: block;
+    margin: 0;
+    margin-right: 10px;
+  }
+
+  .crypto-big .crypto-meta p {
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.5;
+    font-size: 13px;
+    font-weight: 400;
+    margin: 0;
+  }
+
   .content .wp-block-group__inner-container .wp-block-image {
     display: -webkit-box;
     display: -webkit-flex;
@@ -8401,6 +8559,33 @@ div.asl_r.vertical {
 
   .author-page-news .item .right .wrap-bot small {
     font-size: 14px;
+  }
+
+  .crypto-big {
+    padding: 15px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+  }
+
+  .crypto-big .crypto-meta {
+    display: block;
+  }
+
+  .crypto-big .crypto-meta b {
+    font-size: 16px;
+    color: #fff;
+    display: block;
+    margin: 0;
+    margin-right: 0;
+    margin-bottom: 6px;
+  }
+
+  .crypto-big .crypto-meta p {
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.5;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
   }
 
   .content .wp-block-group__inner-container {
@@ -10305,6 +10490,22 @@ div.asl_r.vertical {
     margin-bottom: 0;
     font-size: 34px;
     width: 100%;
+  }
+
+  .crypto-small {
+    margin-top: 20px;
+  }
+
+  .crypto-small .icon {
+    margin-right: 10px;
+  }
+
+  .crypto-small .crypto-meta b {
+    font-size: 16px;
+  }
+
+  .crypto-small .crypto-meta p {
+    font-size: 12px;
   }
 
   .single .author {

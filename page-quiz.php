@@ -11,7 +11,28 @@ get_header();
     <p class="subtitle"><?php the_field('subtitle'); ?></p>
   </div>
 </section>
-
+<style>
+	.quiz-top {
+		position: relative;
+	}
+	.quiz-top::after {
+		position: absolute;
+		width: 100%;
+	height: 100%;
+		background: rgba(0,0,0,0.4);
+		left: 0;
+		content: '';
+		right: 0;
+		bottom: 0;
+		top: 0;
+		z-index: 1;
+		
+	}
+	.quiz-top .container {
+		position: relative;
+		z-index: 5;
+	}
+</style>
 <section class="quiz container" id="topQuiz">
   <div class="quiz-start">
     <?php if (have_rows('quiz_start')) : while(have_rows('quiz_start')) : the_row(); ?>
@@ -1121,7 +1142,16 @@ get_header();
     </div>
   </div>
 </section>
-
+<style>
+  @media (min-width: 992px) {
+    .quiz-start .item:hover {
+      border-color: transparent;
+    }
+    .quiz-start .item.active:hover {
+      border-color: #fe7300;
+    }
+  }
+</style>
 <div class="coupons-hidden container" style="display: none">
   <?php if (have_rows('coupons')) : while(have_rows('coupons')) : the_row(); ?>
   <span data-amount="<?php the_sub_field('amount'); ?>"><?php the_sub_field('name'); ?></span>

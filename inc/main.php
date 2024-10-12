@@ -117,9 +117,9 @@ function my_scripts() {
 	wp_enqueue_script( 'phone_mask', get_template_directory_uri() . '/js/phone_mask.min.js', array('jquery'), null, true );
 	//wp_enqueue_script( 'magnific', get_template_directory_uri() . '/js/magnific-popup.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/js/swiper.js', array('jquery'), null, true );
-	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts-6.js', array('jquery'), null, true );
+	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts-7.js', array('jquery'), null, true );
 	wp_enqueue_script( 'coupons', get_template_directory_uri() . '/js/coupon.js', array('jquery'), null, true );
-	wp_enqueue_script( 'quiz', get_template_directory_uri() . '/js/quiz-6.js', array('jquery'), null, true );
+	wp_enqueue_script( 'quiz', get_template_directory_uri() . '/js/quiz-7.js', array('jquery'), null, true );
 }
 
 @ini_set( 'upload_max_size' , '512M' );

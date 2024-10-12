@@ -227,29 +227,42 @@ get_header();
   </div>
 </section>
 
-<?php if (get_field('dest_title')) { ?>
-<section class="destination wow animate__animated animate__fadeInUp">
-  <div class="container">
-    <h2 class="title "><?php the_field('dest_title'); ?></h2>
-    <div class="destination-wrap ">
-    <?php if(have_rows('destinations')) : while(have_rows('destinations')) : the_row(); ?>
-    <ul>
-      <?php if(have_rows('columns')) : while(have_rows('columns')) : the_row(); ?>
-      <li>
-        <?php if (get_sub_field('link')) { ?>
-        <a href="<?php the_sub_field('link'); ?>"><?php the_sub_field('name'); ?></a>
-        <?php } else { ?>
-        <div><?php the_sub_field('name'); ?></div>
-        <?php } ?>
-      </li>
-      <?php endwhile; endif; ?>
-    </ul>
-    <?php endwhile; endif; ?>
 
+<?php
+$page_id = get_the_ID();
+$parent_id = wp_get_post_parent_id($page_id);
+
+if ($parent_id) {
+    // У текущей страницы есть родительская страница, используем её ID
+    $source_id = $parent_id;
+} else {
+    // У текущей страницы нет родительской страницы, используем её собственный ID
+    $source_id = $page_id;
+}
+
+if (get_field('dest_title', $source_id)) : ?>
+<section class="destination wow animate__animated animate__fadeInUp">
+    <div class="container">
+        <h2 class="title "><?php the_field('dest_title', $source_id); ?></h2>
+        <div class="destination-wrap ">
+            <?php if(have_rows('destinations', $source_id)) : while(have_rows('destinations', $source_id)) : the_row(); ?>
+            <ul>
+                <?php if(have_rows('columns')) : while(have_rows('columns')) : the_row(); ?>
+                <li>
+                    <?php if (get_sub_field('link')) { ?>
+                    <a href="<?php the_sub_field('link'); ?>"><?php the_sub_field('name'); ?></a>
+                    <?php } else { ?>
+                    <div><?php the_sub_field('name'); ?></div>
+                    <?php } ?>
+                </li>
+                <?php endwhile; endif; ?>
+            </ul>
+            <?php endwhile; endif; ?>
+        </div>
     </div>
-  </div>
 </section>
-<?php } ?>
+<?php endif; ?>
+
 	
 <?php if (get_field('dest_title2')) : ?>
 <section class="destination wow animate__animated animate__fadeInUp">

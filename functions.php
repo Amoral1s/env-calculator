@@ -64,3 +64,48 @@ add_filter(
 	10, 1
 );
 
+add_filter('wpcf7_validate', 'block_spam_phrases_in_fields', 10, 2);
+function block_spam_phrases_in_fields($result, $tags) {
+
+    // Массив стоп-фраз
+    $stop_phrases = array(
+        'backlinks',
+        'backlink',
+        'do-follow',
+        'SEO',
+        'Search Engine Optimization',
+        'Building links',
+        'building links',
+        'Content Marketing',
+        'Link Building',
+        'link building',
+        'rank your keywords',
+        'SEO-friendly',
+        'Google indexing',
+        'do-follow link'
+    );
+
+    // Проходим по всем полям формы
+    foreach ($tags as $tag) {
+        $name = $tag['name'];
+        $value = isset($_POST[$name]) ? $_POST[$name] : '';
+
+        // Получаем тип поля
+        $type = isset($tag['basetype']) ? $tag['basetype'] : '';
+
+        // Проверяем только текстовые поля
+        if (in_array($type, array('text', 'textarea', 'email', 'url'))) {
+            // Проверяем каждую фразу из массива
+            foreach ($stop_phrases as $phrase) {
+                if (stripos($value, $phrase) !== false) {
+                    // Если фраза найдена, блокируем отправку и выводим сообщение
+                    $result->invalidate($tag, "we don't need your services");
+                    return $result; // Прерываем выполнение при нахождении спама
+                }
+            }
+        }
+    }
+
+    // Возвращаем результат, если спам не обнаружен
+    return $result;
+}

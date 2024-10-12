@@ -271,7 +271,10 @@ jQuery('.button.callback-open').on('click', function() {
 			width: 100%;
 		}
 	}
-
+	.quiz-top {
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
 </style>
 <script>
 	const ref = document.querySelectorAll('input[name="How_find_company[]"]');
@@ -305,8 +308,78 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1000);
     });
   }
+	
+});
+	document.addEventListener('DOMContentLoaded', function() {
+    const getValidLocalUrls = () => {
+        try {
+            const localUrls = localStorage.getItem('url');
+            if (localUrls) {
+                return JSON.parse(localUrls);
+            }
+        } catch (error) {
+            console.error('Error parsing URLs from localStorage:', error);
+            // Очистим некорректные данные из localStorage
+            localStorage.removeItem('url');
+        }
+        return [];
+    };
+
+    const setUrl = () => {
+        const date = new Date();
+        const hours = String(date.getHours()).padStart(2, '0'); // Форматируем часы
+        const min = String(date.getMinutes()).padStart(2, '0'); // Форматируем минуты
+        const href = window.location.href;
+
+        // Получаем валидные ссылки из localStorage или создаем пустой массив, если их нет
+        const localUrls = getValidLocalUrls();
+
+        // Добавляем новую ссылку с временем
+        const newUrl = `${hours}:${min} - ${href}`;
+        localUrls.push(newUrl);
+
+        // Ограничиваем количество ссылок до последних 10
+        if (localUrls.length > 10) {
+            localUrls.shift(); // Удаляем самый старый элемент
+        }
+
+        // Сохраняем обновленный массив ссылок в localStorage
+        localStorage.setItem('url', JSON.stringify(localUrls));
+        console.log('Set URLs in storage:', localUrls);
+    };
+
+    const populateUrls = () => {
+        try {
+            const inputURLS = document.querySelectorAll('.user_urls');
+
+            if (inputURLS.length > 0) {
+                const storedUrls = getValidLocalUrls();
+                const urlsString = storedUrls.join('\n'); // Преобразуем массив ссылок в строку с переносом строки
+
+                inputURLS.forEach(input => {
+                    input.value = urlsString;
+                });
+                console.log('URLs added to inputs:', urlsString);
+            }
+        } catch (error) {
+            console.error('Error populating URLs:', error);
+        }
+    };
+
+    setUrl();
+    setTimeout(() => {
+        populateUrls();
+    }, 5000);
 });
 </script>
+
+<style>
+	@media (min-width: 992px) {
+		.team-slider .swiper-wrapper {
+			justify-content: center;
+		}
+	}
+</style>
 
 </body>
 </html>

@@ -64,11 +64,14 @@ jQuery(document).ready(function ($) {
       const activeSubmit = document.querySelectorAll('.step-price.step-date.crew.active input');
       if (activeSubmit.length > 0) {
         activeSubmit.forEach(elem => {
-          if (elem.parentElement.classList.contains('wpcf7-not-valid') || elem.value == '') {
-            $(submitButton).addClass('disabled');
-          } else {
-            $(submitButton).removeClass('disabled');
+          if (elem.name != 'Name_date') {
+            if (elem.parentElement.classList.contains('wpcf7-not-valid') || elem.value == '') {
+              $(submitButton).addClass('disabled');
+            } else {
+              $(submitButton).removeClass('disabled');
+            }
           }
+          
         })
       }
       
@@ -219,7 +222,7 @@ jQuery(document).ready(function ($) {
     addServicesLast: [],
   }
 
-  function quizValidation(quizWrap, stepIndex) {
+  function quizValidation(quizWrap) {
 
     data.quizTitle = quizTitlte;
     
@@ -417,6 +420,17 @@ jQuery(document).ready(function ($) {
     console.log(data);
 
     if (hiddenQuizForm) {
+      const nameDate = quizWrap.querySelector('input[name="Name_date"]');
+      if (nameDate && nameDate.value != '') {
+        data.name = nameDate.value;
+      }
+      console.log(nameDate.closest('.input'))
+
+      if (data.quizTitle == "White Glove Moving Service with Complimentary Onsite Visit" || data.quizTitle == "Long Distance and Moves to Canada" ) {
+        if (nameDate) {
+          nameDate.closest('.input').style.display = 'block';
+        }
+      }
       const name = hiddenQuizForm.querySelector('input[name="Full_name"]');
       const email = hiddenQuizForm.querySelector('input[name="E_mail"]');
       const phone = hiddenQuizForm.querySelector('input[name="Phone_number"]');
@@ -441,6 +455,7 @@ jQuery(document).ready(function ($) {
       notice.value = `
 
       Name of Quiz: ${data.quizTitle}; 
+      Move time: ${data.time}; 
       Stop point: ${data.stop != '' ? data.stop : 'No stop point'}; 
       Crew name: ${data.crewName}; 
       Cost per hour: $${data.hourCost}.00; 
