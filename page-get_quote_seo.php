@@ -11,7 +11,7 @@ get_header();
     <?php if ( function_exists('yoast_breadcrumb') ) { yoast_breadcrumb('<div class="breadcrumbs">', '</div>'); } ?>
     <h1 class="page-title title-sub"><?php the_title(); ?></h1>
     <p class="subtitle"><?php the_field('subtitle'); ?></p>
-    <div class="crypto-big">
+    <a href="<?php echo get_permalink(6517); ?>" class="crypto-big">
       <div class="icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
           <g clip-path="url(#clip0_1076_8674)">
@@ -29,7 +29,7 @@ get_header();
         <b>We accept cryptocurrencies as payment</b>
         <p>Bitcoin, Ethereum, Solana, Bitcoin Cash, Lite Coin, Ripple and others on request</p>
       </div>
-    </div>
+    </a>
     <b class="title">Move Type</b>
     <div class="quote-tabs">
       <div data-id="Residential" class="item active">

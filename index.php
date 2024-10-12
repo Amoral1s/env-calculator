@@ -24,7 +24,7 @@
               Quote
             </a>
           </div>
-          <div class="crypto-small">
+          <a href="<?php echo get_permalink(6517); ?>" class="crypto-small">
             <div class="icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                 <g clip-path="url(#clip0_1076_8680)">
@@ -42,7 +42,7 @@
               <b>We accept cryptocurrencies as payment</b>
               <p>Bitcoin, Ethereum, Solana, Bitcoin Cash, Lite Coin, Ripple and others on request</p>
             </div>
-          </div>
+          </a>
         </div>
         <div class="offer-wrap-right">
           <img src="<?php the_field('offer_img', 'options'); ?>" style="min-height: 280px" alt="<?php the_field('offer_title', 'options'); ?>">

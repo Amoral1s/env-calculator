@@ -3701,8 +3701,9 @@ div.asl_r *
     position: relative
     left: -15px
     padding-left: 15px
-    padding-right: 15px
-
+    padding-right: 15px 
+.advantages-wrap-cards
+  width: 100%
 .advantages-wrap-cards.commercial
   .item
     height: auto
@@ -4262,7 +4263,7 @@ div.asl_r *
       font-size: 14px
       font-weight: 400
       margin: 0
-@media (max-width: 1245px)
+@media (max-width: 1245px) 
   .crypto-big
     padding: 20px
     .crypto-meta
@@ -4310,7 +4311,15 @@ div.asl_r *
         font-size: 12px
   
 
-
+@media (min-width: 992px)
+  .crypto-small,
+  .crypto-big
+    b
+      transition: .3s
+    &:hover
+      b
+        color: $main
+        transition: .3s
 
 
 

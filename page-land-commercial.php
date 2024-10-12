@@ -32,6 +32,18 @@ get_header();
         <div class="offer-wrap-right">
         <img src="<?php the_field('offer_img'); ?>" style="min-height: 280px" alt="<?php the_field('offer_title'); ?>">
         </div>
+        <?php if (get_field('advantages_toggle') == true) : ?>
+        <div class="advantages-wrap-cards">
+          <?php if(have_rows('advantages_cards_offer')) : while(have_rows('advantages_cards_offer')) : the_row(); ?>
+          <div class="item">
+            <div class="icon">
+              <img src="<?php echo get_sub_field('icon'); ?>" alt="icon">
+            </div>
+            <b><?php echo get_sub_field('title'); ?></b>
+          </div>
+          <?php endwhile; endif; ?>
+        </div>
+        <?php else : ?>
         <div class="advantages-wrap-cards">
           <?php if(have_rows('advantages_cards', 'options')) : while(have_rows('advantages_cards', 'options')) : the_row(); ?>
           <div class="item">
@@ -42,6 +54,7 @@ get_header();
           </div>
           <?php endwhile; endif; ?>
         </div>
+        <?php endif; ?>
       </div>
     </div>
   </section>

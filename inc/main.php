@@ -99,7 +99,7 @@ function my_styles() {
 		wp_enqueue_style( 'wowcss', get_template_directory_uri() . '/css/wow.min.css' );
 		//wp_enqueue_style( 'mag', get_template_directory_uri() . '/css/magnific-popup.min.css' );
 		wp_enqueue_style( 'swiper', get_template_directory_uri() . '/css/swiper.min.css' );
-		wp_enqueue_style( 'main', get_template_directory_uri() . '/css/main.min.css' );
+		wp_enqueue_style( 'main', get_template_directory_uri() . '/css/main-main.min.css' );
 		wp_enqueue_style( 'coupons', get_template_directory_uri() . '/css/coupon.min.css' );
 		wp_enqueue_style( 'quiz', get_template_directory_uri() . '/css/quiz-6.min.css' );
 		wp_enqueue_style( 'stylecss', get_stylesheet_uri() ); 

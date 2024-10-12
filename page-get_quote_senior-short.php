@@ -11,6 +11,25 @@ get_header();
     <?php if ( function_exists('yoast_breadcrumb') ) { yoast_breadcrumb('<div class="breadcrumbs">', '</div>'); } ?>
     <h1 class="page-title title-sub"><?php the_title(); ?></h1>
     <p class="subtitle"><?php the_field('subtitle'); ?></p>
+    <a href="<?php echo get_permalink(6517); ?>" class="crypto-big">
+      <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+          <g clip-path="url(#clip0_1076_8674)">
+            <path d="M12.6562 15H17.3438M17.3438 15C18.6381 15 19.6875 16.0494 19.6875 17.3438C19.6875 18.6381 18.6381 19.6875 17.3438 19.6875M17.3438 15C18.6381 15 19.6875 13.9506 19.6875 12.6562C19.6875 11.3619 18.6381 10.3125 17.3438 10.3125M17.3438 19.6875H12.6562M17.3438 19.6875V22.0312M12.6562 19.6875V10.3125M12.6562 19.6875H10.3125M12.6562 19.6875V22.0312M12.6562 10.3125H17.3438M12.6562 10.3125V7.96875M12.6562 10.3125H10.3125M17.3438 10.3125V7.96875" stroke="#FE7300" stroke-width="2.34375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M26.4265 7.13754C27.9925 9.45557 28.8281 12.1757 28.8281 15C28.8281 22.7674 22.7674 28.8281 15 28.8281C7.19396 28.8281 1.17188 22.7303 1.17188 15C1.17188 7.23258 7.23258 1.17188 15 1.17188C17.889 1.17188 20.598 2.04375 22.8625 3.57352" stroke="white" stroke-width="2.34375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_1076_8674">
+              <rect width="30" height="30" fill="white"/>
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+      <div class="crypto-meta">
+        <b>We accept cryptocurrencies as payment</b>
+        <p>Bitcoin, Ethereum, Solana, Bitcoin Cash, Lite Coin, Ripple and others on request</p>
+      </div>
+    </a>
     <div class="quote-page-form q-main q-residential">
       <?php echo do_shortcode('[contact-form-7 id="ac18c31" title="Get a quote (Senior - short)"]'); ?>
     </div>
